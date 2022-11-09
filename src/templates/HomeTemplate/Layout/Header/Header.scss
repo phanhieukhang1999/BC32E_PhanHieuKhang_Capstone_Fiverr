@@ -1,14 +1,32 @@
 .Header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
   .fiverr-header {
+    transition: all 0.5s;
     .container {
       max-width: 1440px;
       padding: 0 32px;
-      a {
+      z-index: 999;
+      .header-logo {
+        svg {
+          g {
+            path {
+              // fill: #fff;
+            }
+          }
+          g {
+            path {
+              // fill: #fff;
+            }
+          }
+        }
       }
       .fiverr-header-search {
+        display: none;
         // width: 230px;
         .search-form {
-          height: 34px;
+          height: 46px;
           .search-input {
             -webkit-box-flex: 1;
             border-color: #dadbdd;
@@ -29,6 +47,7 @@
             color: #fff;
             border-radius: 0 4px 4px 0;
             padding: 8px 16px;
+            line-height: 32px;
             .search-icon {
               width: 16px;
               height: 16px;
@@ -44,8 +63,50 @@
       .fiverr-nav {
         li {
           .nav-link {
-            font-weight: 600;
+            font-weight: 400;
             font-size: 18px;
+            span {
+              color: #fff;
+              border: 1px solid #fff;
+              padding: 0px 20px;
+              border-radius: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.Header.scroll {
+  .fiverr-header {
+    background: #fff;
+    .container {
+      z-index: 2;
+      .header-logo {
+        svg {
+          g {
+            path:nth-child(1) {
+              fill: #222325;
+            }
+          }
+          g {
+            path:nth-child(2) {
+              fill: #1dbf73;
+            }
+          }
+        }
+      }
+      .fiverr-header-search {
+        display: block;
+      }
+      .fiverr-nav {
+        .nav-link {
+          color: #62646a;
+          span {
+            color: #1dbf73;
+            border: 1px solid #1dbf73;
+            padding: 0px 20px;
+            border-radius: 6px;
           }
         }
       }

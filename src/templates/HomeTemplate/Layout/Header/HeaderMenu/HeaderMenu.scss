@@ -1,4 +1,5 @@
 .header-menu {
+    display: none;
     .container {
         max-width: 1400px;
         ul {
@@ -8,5 +9,11 @@
         .ant-menu::before {
             content: none;
         }
+    }
+}
+.Header.scroll {
+    .header-menu {
+        border-top: 1px solid #ccc;
+        display: block;
     }
 }

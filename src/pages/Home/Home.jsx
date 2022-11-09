@@ -1,7 +1,11 @@
 import React from 'react'
+import HomeCarousel from '../../templates/HomeTemplate/HomeCarousel/HomeCarousel'
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <HomeCarousel />
+      {/* 123123123 */}
+    </div>
   )
 }
