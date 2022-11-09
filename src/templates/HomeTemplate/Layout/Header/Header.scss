@@ -1,0 +1,54 @@
+.Header {
+  .fiverr-header {
+    .container {
+      max-width: 1440px;
+      padding: 0 32px;
+      a {
+      }
+      .fiverr-header-search {
+        // width: 230px;
+        .search-form {
+          height: 34px;
+          .search-input {
+            -webkit-box-flex: 1;
+            border-color: #dadbdd;
+            border-radius: 3px 0 0 3px;
+            border: 1px solid #ccc;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            font-size: 16px;
+            padding: 10px 2px 10px 16px;
+            z-index: 3;
+            width: 430px;
+          }
+          .search-button {
+            background-color: #222325;
+            color: #fff;
+            border-radius: 0 4px 4px 0;
+            padding: 8px 16px;
+            .search-icon {
+              width: 16px;
+              height: 16px;
+              line-height: 16px;
+              font-size: 20px;
+              svg {
+                margin-bottom: 6px;
+              }
+            }
+          }
+        }
+      }
+      .fiverr-nav {
+        li {
+          .nav-link {
+            font-weight: 600;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

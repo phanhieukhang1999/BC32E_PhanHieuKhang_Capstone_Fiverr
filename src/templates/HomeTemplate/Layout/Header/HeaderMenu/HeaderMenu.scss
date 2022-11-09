@@ -1,0 +1,12 @@
+.header-menu {
+    .container {
+        max-width: 1400px;
+        ul {
+            display: flex;
+            justify-content: space-between;
+        }
+        .ant-menu::before {
+            content: none;
+        }
+    }
+}

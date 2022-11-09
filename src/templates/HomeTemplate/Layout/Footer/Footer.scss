@@ -1,0 +1,39 @@
+.Footer {
+  .container {
+    max-width: 1400px;
+    .footer-bottom {
+      .left {
+        .fiverr-logo-footer {
+        }
+      }
+      .right {
+        .socials {
+          li {
+            margin-right: 25px;
+            .link {
+              .icon {
+                width: 20px;
+                height: 20px;
+                font-size: 25px;
+                color: rgb(133, 133, 133);
+              }
+            }
+          }
+        }
+        .setting {
+          ul {
+            li {
+              margin-right: 25px;
+
+              span {
+                font-size: 16px;
+                font-weight: 500;
+                color: rgb(133, 133, 133);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
