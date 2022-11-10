@@ -1,0 +1,52 @@
+.ServicesCarousel {
+    margin-bottom: 100px;
+  .container {
+    .slick-prev {
+      left: 19px;
+    //   height: 40px;
+    //   width: 40px;
+      z-index: 2 !important;
+    }
+    .slick-next {
+        right: 36px;
+        // height: 40px;
+        // width: 40px;
+        z-index: 2 !important;
+      }
+    .slick-prev:before, .slick-next:before {
+        font-size: 40px;
+        opacity: 1;
+
+    }
+    .slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+        opacity: 1;
+    }
+    .slick-dots {
+        display: none !important;
+    }
+    .card {
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+      img {
+      }
+      .card-body {
+        position: absolute;
+        top: 10px;
+        left: 35px;
+        span {
+          color: #fff;
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 400;
+        }
+        p {
+          color: #fff;
+          font-size: 25px;
+          line-height: 20px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
