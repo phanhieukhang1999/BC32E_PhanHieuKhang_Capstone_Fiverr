@@ -1,0 +1,124 @@
+.Carousel {
+  position: relative;
+  .carousel-img {
+    .carousel-people {
+      position: relative;
+      img {
+        height: 680px;
+      }
+      p {
+        position: absolute;
+        right: 80px;
+        bottom: 5px;
+        color: #fff;
+        font-size: 16px;
+      }
+    }
+  }
+  .carousel-people.show-stars {
+    p {
+      &::before {
+        background: url("../../../../public/img/five_stars.e5c37f5.svg");
+        background-size: 70px;
+        background-repeat: no-repeat;
+        // background-position: center;
+        content: "";
+        display: block;
+        height: 17px;
+      }
+    }
+  }
+
+  .slick-dots.slick-dots-bottom {
+    display: none !important;
+  }
+
+  .carousel-content {
+    position: absolute;
+    bottom: 480px;
+    left: 75px;
+    width: 40%;
+    .carousel-header {
+      .font-domaine {
+        color: #fff;
+        font-size: 48px;
+        line-height: 56px;
+        span {
+          i {
+          }
+        }
+      }
+      .carousel-search {
+        background-color: #fff;
+        height: 45px;
+        border-radius: 5px;
+        .search-form {
+          align-items: center;
+          // padding: 10px;
+          .search-icon {
+            color: #ccc;
+            font-size: 22px;
+            padding-left: 16px;
+          }
+          .search-input {
+            width: 100%;
+            padding-left: 15px;
+            font-size: 16px;
+            &:focus-visible {
+              outline: none;
+            }
+          }
+          .search-button {
+            padding: 10px 30px;
+            background-color: #1dbf73;
+            border-radius: 0 5px 5px 0;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+      }
+      .popular {
+        color: #fff;
+        padding-top: 24px;
+        font-weight: 600;
+        ul {
+          margin-left: 12px;
+          li {
+            margin-right: 12px;
+            a {
+              background-color: transparent;
+              line-height: 24px;
+              font-weight: 600;
+              color: #fff;
+              padding: 5px 12px;
+              border: 1px solid #fff;
+              border-radius: 40px;
+              -webkit-transition: all 0.2s ease-in-out;
+              -o-transition: all 0.2s ease-in-out;
+              transition: all 0.2s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+  .social_brand {
+    background: #fafafa;
+    padding: 20px 0;
+    margin-bottom: 100px;
+    span {
+      padding-right: 30px;
+      color: #b5b6ba;
+      font-weight: 700;
+    }
+    ul {
+      margin-bottom: 0;
+      li {
+        padding-right: 50px;
+        img {
+        }
+      }
+    }
+  }
+}
