@@ -1,6 +1,25 @@
 .Footer {
   .container {
     max-width: 1400px;
+    .grid {
+      h2 {
+        color: #404145;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .flex {
+        ul {
+          li {
+            margin-bottom: 16px;
+            a {
+              color: #74767e;
+              font-size: 16px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
     .footer-bottom {
       .left {
         .fiverr-logo-footer {

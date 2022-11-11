@@ -32,7 +32,7 @@ export default function ServicesCarousel() {
     infinite: false,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 4,
+    slidesToScroll: 5,
     initialSlide: 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -78,57 +78,64 @@ export default function ServicesCarousel() {
           <div className='card'>
             <img src="./img/wordpress-2x.jpg" alt="" />
             <div className='card-body'>
-              <span>Build your brand</span>
-              <p>Logo Design</p>
+              <span>Customize your site</span>
+              <p>WordPress</p>
             </div>
           </div>
           <div className='card'>
             <img src="./img/voiceover-2x.jpg" alt="" />
             <div className='card-body'>
-              <span>Build your brand</span>
-              <p>Logo Design</p>
+              <span>Share your message</span>
+              <p>Voice Over</p>
             </div>
           </div>
           <div className='card'>
             <img src="./img/animated-explainer-2x.jpg" alt="" />
             <div className='card-body'>
-              <span>Build your brand</span>
-              <p>Logo Design</p>
+              <span>Engage your audience</span>
+              <p>Video Explainer</p>
             </div>
           </div>
           <div className='card'>
             <img src="./img/social-2x.jpg" alt="" />
             <div className='card-body'>
-              <span>Build your brand</span>
-              <p>Logo Design</p>
+              <span>Reach more customers</span>
+              <p>Social Media</p>
+            </div>
+          </div>
+          <div className='card'>
+            <img src="./img/seo-2x.jpg" alt="" />
+            <div className='card-body'>
+              <span>Unlock growth online</span>
+              <p>SEO</p>
             </div>
           </div>
           <div className='card'>
             <img src="./img/illustration-2x.jpg" alt="" />
             <div className='card-body'>
-              <span>Build your brand</span>
-              <p>Logo Design</p>
+              <span>Color your dreams</span>
+              <p>Illustration</p>
             </div>
           </div>
           <div className='card'>
             <img src="./img/translation-2x.jpg" alt="" />
             <div className='card-body'>
-              <span>Build your brand</span>
-              <p>Logo Design</p>
+              <span>Go global</span>
+              <p>Translation</p>
             </div>
           </div>
           <div className='card'>
             <img src="./img/data-entry-2x.jpg" alt="" />
             <div className='card-body'>
-              <span>Build your brand</span>
-              <p>Logo Design</p>
+              <span>Learn your business</span>
+              <p>Data Entry</p>
             </div>
           </div>
           <div className='card'>
             <img src="./img/book-covers-2x.jpg" alt="" />
             <div className='card-body'>
-              <span>Build your brand</span>
-              <p>Logo Design</p>
+              <span>Showcase your story</span>
+              <p>Book Covers</p>
             </div>
           </div>
         </Slider>
