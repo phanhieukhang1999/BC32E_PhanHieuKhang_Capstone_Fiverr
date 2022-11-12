@@ -32,7 +32,7 @@ const Container = styled.div`
     }
     .main-content {
       flex: 1;
-      margin: 130px 0;
+      /* margin: 130px 0; */
     }
 
     .Footer {

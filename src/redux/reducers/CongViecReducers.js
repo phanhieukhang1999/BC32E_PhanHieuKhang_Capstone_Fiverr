@@ -52,64 +52,66 @@ const stateDefault = {
                 }
             ]
         },
-        // {
-        //     "id": 2,
-        //     "tenLoaiCongViec": "Digital Marketing",
-        //     "dsNhomChiTietLoai": [
-        //       {
-        //         "id": 7,
-        //         "tenNhom": "Social",
-        //         "hinhAnh": "https://fiverrnew.cybersoft.edu.vn/images/lcv3.jpg",
-        //         "maLoaiCongviec": 2,
-        //         "dsChiTietLoai": [
-        //           {
-        //             "id": 8,
-        //             "tenChiTiet": "Social Media Marketing"
-        //           },
-        //           {
-        //             "id": 9,
-        //             "tenChiTiet": "Influencer Marketing"
-        //           }
-        //         ]
-        //       },
-        //       {
-        //         "id": 10,
-        //         "tenNhom": "Advertising",
-        //         "hinhAnh": "https://fiverrnew.cybersoft.edu.vn/images/lcv4.jpg",
-        //         "maLoaiCongviec": 2,
-        //         "dsChiTietLoai": [
-        //           {
-        //             "id": 11,
-        //             "tenChiTiet": "Social Media Advertising"
-        //           },
-        //           {
-        //             "id": 12,
-        //             "tenChiTiet": "Search Engine Marketing (SEM)"
-        //           }
-        //         ]
-        //       },
-        //       {
-        //         "id": 167,
-        //         "tenNhom": "Code 24h",
-        //         "hinhAnh": "",
-        //         "maLoaiCongviec": 2,
-        //         "dsChiTietLoai": []
-        //       },
-        //       {
-        //         "id": 203,
-        //         "tenNhom": "Design New 123",
-        //         "hinhAnh": "",
-        //         "maLoaiCongviec": 2,
-        //         "dsChiTietLoai": [
-        //           {
-        //             "id": 2,
-        //             "tenChiTiet": "Logo Design"
-        //           }
-        //         ]
-        //       }
-        //     ]
-        //   },
-    ]
+    //     {
+    //         "id": 2,
+    //         "tenLoaiCongViec": "Digital Marketing",
+    //         "dsNhomChiTietLoai": [
+    //             {
+    //                 "id": 7,
+    //                 "tenNhom": "Social",
+    //                 "hinhAnh": "https://fiverrnew.cybersoft.edu.vn/images/lcv3.jpg",
+    //                 "maLoaiCongviec": 2,
+    //                 "dsChiTietLoai": [
+    //                     {
+    //                         "id": 8,
+    //                         "tenChiTiet": "Social Media Marketing"
+    //                     },
+    //                     {
+    //                         "id": 9,
+    //                         "tenChiTiet": "Influencer Marketing"
+    //                     }
+    //                 ]
+    //             },
+    //             {
+    //                 "id": 10,
+    //                 "tenNhom": "Advertising",
+    //                 "hinhAnh": "https://fiverrnew.cybersoft.edu.vn/images/lcv4.jpg",
+    //                 "maLoaiCongviec": 2,
+    //                 "dsChiTietLoai": [
+    //                     {
+    //                         "id": 11,
+    //                         "tenChiTiet": "Social Media Advertising"
+    //                     },
+    //                     {
+    //                         "id": 12,
+    //                         "tenChiTiet": "Search Engine Marketing (SEM)"
+    //                     }
+    //                 ]
+    //             },
+    //             {
+    //                 "id": 167,
+    //                 "tenNhom": "Code 24h",
+    //                 "hinhAnh": "",
+    //                 "maLoaiCongviec": 2,
+    //                 "dsChiTietLoai": []
+    //             },
+    //             {
+    //                 "id": 203,
+    //                 "tenNhom": "Design New 123",
+    //                 "hinhAnh": "",
+    //                 "maLoaiCongviec": 2,
+    //                 "dsChiTietLoai": [
+    //                     {
+    //                         "id": 2,
+    //                         "tenChiTiet": "Logo Design"
+    //                     }
+    //                 ]
+    //             }
+    //         ]
+    //     },
+    ],
+    itemMenu: {}
+    
 }
 
 export const CongViecReducers = (state = stateDefault, action) => {

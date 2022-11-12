@@ -5,7 +5,7 @@ const rootReducer = combineReducers({
     
     //state ứng dụng
     // CongViecReduers: CongViecReducers,
-    CongViecReducers
+    CongViecReducers,
 
 })
 

@@ -3,10 +3,11 @@ import { SET_MENU_CONG_VIEC } from "../types/CongViecTypes";
 
 
 export const layMenuCongViecAction = () => {
+   
     return async (dispatch) => {
         try {
             const result = await congViecServiecs.layMenuCongViec()
-            console.log("result: ", result);
+            console.log("result: ", result.data.content);
             if (result.statusCode === 200) {
                 dispatch({
                     type: SET_MENU_CONG_VIEC,
@@ -17,7 +18,7 @@ export const layMenuCongViecAction = () => {
 
             }
         } catch (error) {
-            console.log("error: ", error);
+            console.log("error: ", error.response?.data);
 
         }
     }

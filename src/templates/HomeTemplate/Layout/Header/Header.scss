@@ -3,7 +3,7 @@
   width: 100%;
   z-index: 999;
   .fiverr-header {
-    transition: all 0.5s;
+    // transition: all 0.5s;
     .container {
       max-width: 1440px;
       padding: 0 32px;
@@ -89,42 +89,42 @@
     }
   }
 }
-.Header.scroll {
-  .fiverr-header {
-    background: #fff;
-    .container {
-      z-index: 2;
-      .header-logo {
-        svg {
-          .fill-fiverr {
-            fill: #222325;
-          }
-          .fill {
-            fill: #1dbf73;
-          }
-        }
-      }
-      .fiverr-header-search {
-        display: block;
-      }
-      .fiverr-nav {
-        .nav-link {
-          color: #62646a;
-          &:hover {
-            color: #1dbf73;
-          }
+// .Header.scroll {
+//   .fiverr-header {
+//     // background: #fff;
+//     .container {
+//       z-index: 2;
+//       .header-logo {
+//         svg {
+//           .fill-fiverr {
+//             fill: #222325;
+//           }
+//           .fill {
+//             fill: #1dbf73;
+//           }
+//         }
+//       }
+//       .fiverr-header-search {
+//         display: block;
+//       }
+//       .fiverr-nav {
+//         .nav-link {
+//           color: #62646a;
+//           &:hover {
+//             color: #1dbf73;
+//           }
 
-          span {
-            color: #1dbf73;
-            border: 1px solid #1dbf73;
-            padding: 0px 20px;
-            border-radius: 6px;
-            &:hover {
-              color: #fff;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//           span {
+//             color: #1dbf73;
+//             border: 1px solid #1dbf73;
+//             padding: 0px 20px;
+//             border-radius: 6px;
+//             &:hover {
+//               color: #fff;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

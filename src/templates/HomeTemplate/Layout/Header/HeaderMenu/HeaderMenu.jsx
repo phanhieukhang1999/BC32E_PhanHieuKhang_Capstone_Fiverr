@@ -10,6 +10,7 @@ import { layMenuCongViecAction } from '../../../../../redux/actions/CongViecActi
 export default function HeaderMenu() {
 
     const { menuJob } = useSelector(state => state.CongViecReducers)
+    console.log("menuJob: ", menuJob);
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -18,47 +19,50 @@ export default function HeaderMenu() {
     }, [])
     const renderMenuJob = () => {
 
-        return menuJob?.map((menu, index) => {
+        return menuJob.map((menu, index) => {
             return <Menu.SubMenu title={menu.tenLoaiCongViec} key={index}>
-                
-                {/* <Menu.Item icon={<AppstoreOutlined />}>
-                    {menu.tenNhom}
-                </Menu.Item> */}
-                    {renderItemMenu()}
+                {menu.dsNhomChiTietLoai.map((item, index) => {
+                    return <Menu.Item icon={<AppstoreOutlined />} key={index}>
+                        {item.tenNhom}
+                    </Menu.Item>
+                })}
+
+
 
             </Menu.SubMenu>
         })
     }
-    const renderItemMenu = () => {
-        return menuJob?.map((item, index) => {
-            return <Menu.Item icon={<AppstoreOutlined />}>
-                {item.tenNhom}
-            </Menu.Item>
-        })
-    }
+    // const renderItemMenu = () => {
+    //     return menuJob?.map((item, index) => {
+    //         return <Menu.Item icon={<AppstoreOutlined />}>
+    //             {item.tenNhom}
+    //         </Menu.Item>
+    //     })
+    // }
     return (
         <Menu mode="horizontal" defaultSelectedKeys={['mail']} >
 
             {/* <Menu.SubMenu key="SubMenu" title="Graphic & Design" >
-                <Menu.ItemGroup title="Logo & Brand Identity">
-                    <Menu.Item key="four" icon={<AppstoreOutlined />}>
-                        Logo Design
-                    </Menu.Item>
-                    <Menu.Item key="five" icon={<AppstoreOutlined />}>
-                        Brand Style Guides
-                    </Menu.Item>
-                </Menu.ItemGroup>
-                <Menu.ItemGroup title="Item Group">
-                    <Menu.Item key="four" icon={<AppstoreOutlined />}>
-                        Navigation Four
-                    </Menu.Item>
-                    <Menu.Item key="five" icon={<AppstoreOutlined />}>
-                        Navigation Five
-                    </Menu.Item>
-                </Menu.ItemGroup>
+
+                <Menu.Item key="four" icon={<AppstoreOutlined />}>
+                    Logo Design
+                </Menu.Item>
+                <Menu.Item key="five" icon={<AppstoreOutlined />}>
+                    Brand Style Guides
+                </Menu.Item>
+
+
+                <Menu.Item key="four" icon={<AppstoreOutlined />}>
+                    Navigation Four
+                </Menu.Item>
+                <Menu.Item key="five" icon={<AppstoreOutlined />}>
+                    Navigation Five
+                </Menu.Item>
+
             </Menu.SubMenu> */}
 
             {renderMenuJob()}
+
 
 
         </Menu>
