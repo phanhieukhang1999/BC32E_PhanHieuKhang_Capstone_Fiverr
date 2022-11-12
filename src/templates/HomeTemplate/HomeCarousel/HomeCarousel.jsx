@@ -2,6 +2,8 @@ import React from 'react'
 import { Carousel } from 'antd';
 import './HomeCarousel.scss'
 import { SearchOutlined } from '@ant-design/icons'
+import Search from './SearchCarousel/SearchCarousel';
+import SearchCarousel from './SearchCarousel/SearchCarousel';
 
 // const contentStyle = {
 //     height: '160px',
@@ -51,13 +53,14 @@ export default function HomeCarousel() {
                         <span>Find the perfect <i>freelance</i> services for your business</span>
                     </h1>
                     <div className='carousel-search'>
-                        <form className='search-form flex'>
+                        {/* <form className='search-form flex'>
                             <SearchOutlined className='search-icon' />
                             <input className='search-input' type="search" placeholder='Try "building mobile app"' />
                             <button className='search-button'>
                                 Search
                             </button>
-                        </form>
+                        </form> */}
+                        <SearchCarousel />
                     </div>
                     <div className='popular flex'>
                         Popular:

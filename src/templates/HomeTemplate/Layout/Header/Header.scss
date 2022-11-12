@@ -23,7 +23,7 @@
         }
       }
       .fiverr-header-search {
-        display: none;
+        display: block;
         // width: 230px;
         .search-form {
           height: 46px;
@@ -41,6 +41,9 @@
             padding: 10px 2px 10px 16px;
             z-index: 3;
             width: 430px;
+            &:focus-visible {
+              outline: none;
+            }
           }
           .search-button {
             background-color: #222325;
@@ -65,15 +68,19 @@
           .nav-link {
             font-weight: 400;
             font-size: 18px;
+            color: #62646a;
+            &:hover {
+              color: #1dbf73;
+            }
             span {
-              color: #fff;
-              border: 1px solid #fff;
+              color: #62646a;
+              border: 1px solid #1dbf73;
+
               padding: 0px 20px;
               border-radius: 6px;
               &:hover {
                 background: #1dbf73;
-              border: 1px solid #1dbf73;
-
+                border: 1px solid #1dbf73;
               }
             }
           }
@@ -106,7 +113,7 @@
           &:hover {
             color: #1dbf73;
           }
-          
+
           span {
             color: #1dbf73;
             border: 1px solid #1dbf73;
