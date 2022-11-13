@@ -1,0 +1,23 @@
+.ListJob {
+  .container {
+    .top-bar {
+      .left {
+        .dropdown {
+          button {
+            color: black;
+            background: white;
+            border: 1px solid #dadbdd;
+            margin-right: 5px;
+          }
+        }
+      }
+      .right {
+        .check {
+            .form-check {
+                margin-left: 30px;
+            }
+        }
+      }
+    }
+  }
+}

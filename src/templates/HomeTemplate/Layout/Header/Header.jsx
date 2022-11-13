@@ -16,7 +16,7 @@ export default function Header(props) {
   return (
 
     <div className={`Header`}>
-      <header className={`fiverr-header p-4 bg-white`}>
+      <header className={`fiverr-header p-2 bg-white`}>
         <div className="container flex justify-between p-1 mx-auto">
           <NavLink to='/' className="header-logo flex site-logo items-center">
             <svg width="89" height="27" viewBox="0 0 89 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,25 +37,25 @@ export default function Header(props) {
           <ul className="fiverr-nav items-stretch mb-0  hidden space-x-3 lg:flex">
 
             <li className="flex">
-              <NavLink rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-white hover:text-green-500 active::text-blue-700">Fiverr Business</NavLink>
+              <NavLink rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500 active::text-blue-700">Fiverr Business</NavLink>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-white hover:text-green-500">Explore</a>
+              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Explore</a>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-white hover:text-green-500">English</a>
+              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">English</a>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-white hover:text-green-500">US$ USD</a>
+              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">US$ USD</a>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-white hover:text-green-500">Become a Seller</a>
+              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Become a Seller</a>
             </li>
             <li className="flex">
-              <NavLink rel="noopener noreferrer" to='/login' className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-white hover:text-green-500">Sign In</NavLink>
+              <NavLink rel="noopener noreferrer" to='/login' className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Sign In</NavLink>
             </li>
             <li className="flex">
-              <NavLink rel="noopener noreferrer" to='/register' className="nav-link flex items-center rounded text-white hover:text-green-500 "><span >Join</span></NavLink>
+              <NavLink rel="noopener noreferrer" to='/register' className="nav-link flex items-center rounded text-gray-500 hover:text-green-500 "><span >Join</span></NavLink>
             </li>
           </ul>
 

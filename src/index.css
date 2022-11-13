@@ -41,7 +41,15 @@ body {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1320px !important;
   margin: auto;
   padding: 0 32px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  padding-left: 0 !important;
 }
