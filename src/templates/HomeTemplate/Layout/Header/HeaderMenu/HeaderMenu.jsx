@@ -5,7 +5,9 @@ import { Menu } from 'antd';
 import './HeaderMenu.scss'
 
 import { useSelector, useDispatch, } from 'react-redux';
-import { layMenuCongViecAction } from '../../../../../redux/actions/CongViecActions';
+import { layCongViecTheoChiTietLoaiAction, layMenuCongViecAction } from '../../../../../redux/actions/CongViecActions';
+
+import { Link } from 'react-router-dom';
 
 export default function HeaderMenu() {
 
@@ -14,7 +16,8 @@ export default function HeaderMenu() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        
+        dispatch(layCongViecTheoChiTietLoaiAction())
+
         dispatch(layMenuCongViecAction())
     }, [])
     const renderMenuJob = () => {
@@ -22,8 +25,10 @@ export default function HeaderMenu() {
         return menuJob?.map((menu, index) => {
             return <Menu.SubMenu title={menu.tenLoaiCongViec} key={index.id}>
                 {menu.dsNhomChiTietLoai?.map((item, index) => {
-                    return <Menu.Item  key={index.id}>
-                        {item.tenNhom}
+                    return <Menu.Item key={index.id}>
+                        <Link to={`/menuItem/${item.id}`}>
+                            {item.tenNhom}
+                        </Link>
                     </Menu.Item>
                 })}
 
@@ -60,14 +65,14 @@ export default function HeaderMenu() {
                     </Menu.Item>
 
                 </Menu.SubMenu> */}
-                
+
 
                 {renderMenuJob()}
 
 
 
             </Menu>
-            
+
         </>
     )
 }

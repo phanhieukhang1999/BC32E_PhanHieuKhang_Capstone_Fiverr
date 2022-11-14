@@ -4,16 +4,18 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { layDanhSachCongViecTheoTenAction } from '../../redux/actions/CongViecActions';
+import { layCongViecTheoChiTietLoaiAction, layDanhSachCongViecTheoTenAction } from '../../redux/actions/CongViecActions';
 import ItemJob from './ItemJob/ItemJob';
 import './ListJob.scss'
 export default function ListJob() {
     const { valueSearch } = useParams();
     const dispatch = useDispatch()
-    const {resultSearchJobByName} = useSelector(state => state.CongViecReducers)
+    const { resultSearchJobByName, menuItem } = useSelector(state => state.CongViecReducers)
     console.log("resultSearchJobByName: ", resultSearchJobByName);
 
-    let {renderJob, setRenderJob} = useState([])
+    let [renderJob, setRenderJob] = useState([]);
+   
+
 
     useEffect(() => {
         dispatch(layDanhSachCongViecTheoTenAction(valueSearch))
@@ -21,6 +23,7 @@ export default function ListJob() {
     return (
         <div className='ListJob py-36'>
             <div className="container">
+                {/* {valueSearch.slice(0, valueSearch.indexOf('=', 0) + 1) === 'menuItem/' ? (<p></p>) : (<h1 className='pt-5 text-3xl'>Result for "{valueSearch}"</h1>)} */}
                 <h1 className='pt-5 text-3xl'>Result for "{valueSearch}"</h1>
                 <div className='top-bar flex justify-between'>
                     <div className='left flex'>
@@ -73,9 +76,17 @@ export default function ListJob() {
                 </div>
                 <div className='job-content'>
                     <div className="row">
-                        <div className="col-12 col-md-6 col-lg-3 mb-5" >
-                            <ItemJob />
-                        </div>
+                        {resultSearchJobByName?.map((item) => {
+                            return (
+                                <div className="col-12 col-md-6 col-lg-3 mb-5" key={item.id}>
+                                    <ItemJob listJob={item} />
+                                </div>
+                            )
+                        })}
+                        {/* <div className="col-12 col-md-6 col-lg-3 mb-5" >
+                            <ItemJob  />
+                        </div> */}
+
 
                     </div>
                 </div>
