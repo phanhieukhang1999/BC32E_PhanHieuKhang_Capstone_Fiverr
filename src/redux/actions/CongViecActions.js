@@ -27,12 +27,13 @@ export const layCongViecTheoChiTietLoaiAction = (maChiTietLoai) => {
 
     return async (dispatch) => {
         try {
-            const result = await congViecServiecs.layDanhSachCongViecTheoTenService(maChiTietLoai)
+            console.log(maChiTietLoai);
+            const result = await congViecServiecs.layChiTietLoaiCongViec(maChiTietLoai)
             console.log("result: ", result.data.content);
             if (result.status === 200) {
                 dispatch({
                     type: LAY_CONG_VIEC_THEO_CHI_TIET_LOAI,
-                    menuItem: result.data.content,
+                    menuItem: result.data.content[0],
 
                 })
 

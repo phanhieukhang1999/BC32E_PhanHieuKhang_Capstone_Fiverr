@@ -20,18 +20,25 @@ export default function HeaderMenu() {
 
         dispatch(layMenuCongViecAction())
     }, [])
+
+    // const reloadPage = () => {
+    //     window.location.reload();
+    // }
+    
     const renderMenuJob = () => {
 
         return menuJob?.map((menu, index) => {
             return <Menu.SubMenu title={menu.tenLoaiCongViec} key={index.id}>
                 {menu.dsNhomChiTietLoai?.map((item, index) => {
                     return <Menu.Item key={index.id}>
-                        <Link to={`/menuItem/${item.id}`}>
-                            {item.tenNhom}
+                        <Link to={`/${menu.id}/${item.id}`}>
+                            {item.tenNhom} 
                         </Link>
                     </Menu.Item>
                 })}
 
+                {/* đây là phần render ra cái list menu */}
+                {/* cái Link to => khi bấm item là để render ra các card */}
 
 
             </Menu.SubMenu>

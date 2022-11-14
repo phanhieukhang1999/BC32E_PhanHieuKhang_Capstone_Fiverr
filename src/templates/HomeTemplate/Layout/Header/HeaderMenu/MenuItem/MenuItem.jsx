@@ -1,19 +1,24 @@
 import React, { useEffect } from 'react'
 import { Card } from "react-bootstrap";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,  useParams} from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import './MenuItem.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { layCongViecTheoChiTietLoaiAction } from '../../../../../../redux/actions/CongViecActions';
-export default function MenuItem(props) {
-    const { item } = props
-    const navigate = useNavigate()
+export default function MenuItem() {
+    // const { item } = props
+    // const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { menuItem } = useSelector(state => state.CongViecReduers)
+    
+    const {idMenu,idItem} = useParams()
+    const {menuItem} = useSelector(state => state.CongViecReducers)
+    console.log("menuItem: ", menuItem);
+    // console.log("RENDER",menuItem.dsNhomChiTietLoai.filter(item => item.id == idItem));
+
     useEffect(() => {
-        dispatch(layCongViecTheoChiTietLoaiAction())
+        dispatch(layCongViecTheoChiTietLoaiAction(idMenu));
     }, [])
     return (
         <div className='menuItem py-36'>
@@ -67,17 +72,57 @@ export default function MenuItem(props) {
                 </div>
             </div>
                 <div className="row">
-                    <div className="col-12 col-md-6 col-lg-3 mb-5">
+                {menuItem.dsNhomChiTietLoai?.map((item) => {
+                    return <div className="col-12 col-md-6 col-lg-3 mb-5">
+                       <div className="px-3 py-3 flex " >            
+                             <Card key={item.id}>
+                        
+                            <Card.Img
+                                role="button"
+                                variant="top"
+                                // heigth={160}
+                                src={item.hinhAnh ? item.hinhAnh : 'https://picsum.photos/200/200'}
+                                // src='https://picsum.photos/200/200'
+                                // style={{heigth:'160px'}} 
+                                style={{  height: 160 }}
+                            />
+                            <Card.Body>
+                                <div className='flex items-center'>
+                                    <img src='https://picsum.photos/200/200' style={{ heigth: '30px', width: '30px', borderRadius: 50 }} alt="" />
+                                    <span className='ml-3'>admin</span>
+                                </div>
+                                <Card.Text role="button">
+                                    <span className="limit-line h5" style={{ height: "3.2rem", WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', display: '-webkit-box' }}>
+                                        {item.tenNhom}
+                                    </span>
+                                </Card.Text>
+                                <div className="h6">
+                                    <span className="mr-1">
+                                        <i className=" text-warning fas fa-star"></i>
+                                    </span>
+                                    <span className="text-warning mr-1">123123</span>
+                                    <span className="text-muted">123123</span>
+                                </div>
+                            </Card.Body>
+                            <div className="d-flex justify-content-between align-items-center px-3 py-1 border border-top-secondary border-right-0 border-left-0 border-bottom-0">
+                                <span className="h4 mb-0 text-muted">
+                                    <i className="fas fa-heart"></i>
+                                </span>
+                                <div className=" align-items-center">
+                                    <span className="h6">STARTING AT</span>
+                                    <span className="h4 ml-1">123123$</span>
+                                </div>
+                            </div>
+                        </Card>
 
-                        {menuItem.map((item) => {
-                            return <div className="px-3 py-3" key={item.id}>
-                                <Card>
+                        
+                                {/* <Card>
                                     <Card.Img
                                         role="button"
                                         height={200}
                                         variant="top"
                                         // src={listJob.congViec.hinhAnh ? listJob.congViec.hinhAnh : "https://picsum.photos/200/200"}
-                                        // src={listJob.congViec.hinhAnh}
+                                        // src={menuItem.dsNhomChiTietLoai.hinhAnh}
                                         src='https://picsum.photos/200/200'
                                     />
                                     <Card.Body>
@@ -107,9 +152,9 @@ export default function MenuItem(props) {
                                             <span className="h4 ml-1">123123$</span>
                                         </div>
                                     </div>
-                                </Card>
+                                </Card> */}
                             </div>
-                        })}
+                      
                         {/* <div className="px-3 py-3" >
                             <Card>
                                 <Card.Img
@@ -150,7 +195,10 @@ export default function MenuItem(props) {
                             </Card>
                         </div> */}
                     </div>
+                    }
+                    )}
                 </div>
+                
             </div>
         </div>
     )

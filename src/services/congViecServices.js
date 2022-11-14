@@ -13,6 +13,9 @@ export const congViecServiecs = {
 
     layCongViecTheoChiTietLoai: (maChiTietLoai) => {
         return api.get(`cong-viec/lay-cong-viec-theo-chi-tiet-loai/${maChiTietLoai}`)
+    },
+    layChiTietLoaiCongViec: (maChiTietLoai) => {
+        return api.get(`cong-viec/lay-chi-tiet-loai-cong-viec/${maChiTietLoai}`)
+
     }
-    
 }
