@@ -260,6 +260,7 @@ const stateDefault = {
 
     ],
     menuItem: [],
+    detailItem: [],
 
     resultSearchJobByName: [],
 

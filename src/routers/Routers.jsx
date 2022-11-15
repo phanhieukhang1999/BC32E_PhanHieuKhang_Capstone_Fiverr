@@ -6,6 +6,7 @@ import ListJob from '../pages/ListJob/ListJob'
 import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import HomeTemplate from '../templates/HomeTemplate/HomeTemplate'
+import MenuDetail from '../templates/HomeTemplate/Layout/Header/HeaderMenu/MenuDetail/MenuDetail'
 import MenuItem from '../templates/HomeTemplate/Layout/Header/HeaderMenu/MenuItem/MenuItem'
 
 export default function Routers() {
@@ -35,9 +36,14 @@ export default function Routers() {
                     element: <ListJob />
                 },
                 {
+                    path:'menuDetail/:id',
+                    element: <MenuDetail/>
+                },
+                {
                     path: ':idMenu/:idItem',
                     element: <MenuItem />
                 },
+
                 {
                     path: 'detailJob/:jobId',
                     element: <DetailJob />

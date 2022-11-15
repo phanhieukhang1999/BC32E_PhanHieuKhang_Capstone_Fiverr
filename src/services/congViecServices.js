@@ -11,10 +11,10 @@ export const congViecServiecs = {
         return api.get(`cong-viec/lay-danh-sach-cong-viec-theo-ten/${valueSearch}`)
     },
 
-    layCongViecTheoChiTietLoai: (maChiTietLoai) => {
+    layCongViecTheoChiTietLoaiService: (maChiTietLoai) => {
         return api.get(`cong-viec/lay-cong-viec-theo-chi-tiet-loai/${maChiTietLoai}`)
     },
-    layChiTietLoaiCongViec: (maChiTietLoai) => {
+    layChiTietLoaiCongViecService: (maChiTietLoai) => {
         return api.get(`cong-viec/lay-chi-tiet-loai-cong-viec/${maChiTietLoai}`)
 
     }

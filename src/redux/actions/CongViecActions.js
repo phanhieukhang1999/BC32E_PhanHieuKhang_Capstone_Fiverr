@@ -28,7 +28,7 @@ export const layCongViecTheoChiTietLoaiAction = (maChiTietLoai) => {
     return async (dispatch) => {
         try {
             console.log(maChiTietLoai);
-            const result = await congViecServiecs.layChiTietLoaiCongViec(maChiTietLoai)
+            const result = await congViecServiecs.layChiTietLoaiCongViecService(maChiTietLoai)
             console.log("result: ", result.data.content);
             if (result.status === 200) {
                 dispatch({

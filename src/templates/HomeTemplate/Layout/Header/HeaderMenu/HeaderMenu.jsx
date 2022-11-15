@@ -7,10 +7,10 @@ import './HeaderMenu.scss'
 import { useSelector, useDispatch, } from 'react-redux';
 import { layCongViecTheoChiTietLoaiAction, layMenuCongViecAction } from '../../../../../redux/actions/CongViecActions';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function HeaderMenu() {
-
+    const navigate = useNavigate()
     const { menuJob } = useSelector(state => state.CongViecReducers)
     console.log("menuJob: ", menuJob);
     const dispatch = useDispatch()
@@ -28,7 +28,8 @@ export default function HeaderMenu() {
     const renderMenuJob = () => {
 
         return menuJob?.map((menu, index) => {
-            return <Menu.SubMenu title={menu.tenLoaiCongViec} key={index.id}>
+            return <Menu.SubMenu title={menu.tenLoaiCongViec} key={index.id} onTitleClick={() => navigate(`menuDetail/${menu.id}`)}>
+                
                 {menu.dsNhomChiTietLoai?.map((item, index) => {
                     return <Menu.Item key={index.id}>
                         <Link to={`/${menu.id}/${item.id}`}>
@@ -37,8 +38,7 @@ export default function HeaderMenu() {
                     </Menu.Item>
                 })}
 
-                {/* đây là phần render ra cái list menu */}
-                {/* cái Link to => khi bấm item là để render ra các card */}
+               
 
 
             </Menu.SubMenu>
