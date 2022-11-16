@@ -1,6 +1,6 @@
 import { api } from '../constants/api'
 
-export const congViecServiecs = {
+export const congViecServices = {
 
     layMenuCongViec: () => {
         return api.get(`cong-viec/lay-menu-loai-cong-viec`)
@@ -17,5 +17,8 @@ export const congViecServiecs = {
     layChiTietLoaiCongViecService: (maChiTietLoai) => {
         return api.get(`cong-viec/lay-chi-tiet-loai-cong-viec/${maChiTietLoai}`)
 
+    },
+    layCongViecChiTietService: (maCongViec) => {
+        return api.get(`cong-viec/lay-cong-viec-chi-tiet/${maCongViec}`)
     }
 }

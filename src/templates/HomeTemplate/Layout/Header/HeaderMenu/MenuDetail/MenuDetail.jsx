@@ -110,7 +110,7 @@ export default function MenuDetail() {
                                             </ListGroup.Item>
                                             {detail.dsChiTietLoai?.map((item, index) => {
                                                 return <ListGroup key={index}>
-                                                    <ListGroup.Item action href='/'>
+                                                    <ListGroup.Item action href={`/detailJob/${item.id}`}>
                                                         <span className='mb-2 text-gray-500'>{item.tenChiTiet}</span>
                                                     </ListGroup.Item>
 

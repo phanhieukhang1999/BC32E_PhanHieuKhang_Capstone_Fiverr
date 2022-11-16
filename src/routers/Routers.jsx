@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate, useRoutes } from 'react-router-dom'
+import {  useRoutes } from 'react-router-dom'
 import DetailJob from '../pages/DetailJob/DetailJob'
 import Home from '../pages/Home/Home'
 import ListJob from '../pages/ListJob/ListJob'

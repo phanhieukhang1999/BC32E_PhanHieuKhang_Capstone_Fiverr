@@ -1,50 +1,69 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Progress } from 'antd';
 import { Tabs, Form, Input } from "antd";
 
 import './DetailJob.scss'
 import './OrderJob/OrderJob.scss'
 import OrderJob from './OrderJob/OrderJob';
+import { useDispatch, useSelector } from 'react-redux';
+import { layCongViecChiTietAction } from '../../redux/actions/CongViecActions';
+import { useParams } from 'react-router-dom';
 export default function DetailJob() {
+
+  const { detailJob, jobId } = useParams()
+  console.log("jobId: ", jobId);
+  // console.log("detailJob: ", detailJob);
+  const { detailJobs } = useSelector(state => state.CongViecReducers)
+  console.log("detailJobs: ", detailJobs);
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(layCongViecChiTietAction(jobId))
+  }, [])
+
+
   return (
     <div className='DetailJob py-36'>
       <div className="container">
         <div className="row">
           <div className="left col-8">
             <p>
-              ABC
+              {detailJobs?.tenLoaiCongViec}
+              {/* 123123 */}
               <i class="fa-solid fa-chevron-right"></i>
-              123
+              {detailJobs?.tenNhomChiTietLoai}
               <i class="fa-solid fa-chevron-right"></i>
-              abc
+              {detailJobs?.tenChiTietLoai}
+
             </p>
-            <h2>Design twitch logo stream overlays alerts and screens</h2>
+            <h2>{detailJobs?.congViec?.tenCongViec}</h2>
             <div className='user flex'>
-              <img src="https://picsum.photos/35/35" alt="" />
-              <span>admin</span>
-              <div className='star'>
+              <img src="https://picsum.photos/35/35" alt="" className='rounded-full mr-2' />
+              <span>{detailJobs?.tenNguoiTao} |</span>
+              <div className='star text-warning ml-2'>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <span>(123)</span>
+                <span>({detailJobs?.congViec?.danhGia})</span>
               </div>
             </div>
-            <img src="https://picsum.photos/1000/600" alt="" className='mt-3'/>
+            <img src="https://picsum.photos/1000/600" alt="" className='mt-3' />
             <div className='about'>
               <h4 className="my-4">About This Gig</h4>
 
               <p className="text-muted h6 mb-4" style={{ lineHeight: 1.5 }}>
-                \nHi There,\r\n\r\n\r\n\r\nHave You Been Looking for a Brand Logo with Complete Corporate Brand Identity?\r\n\r\n\r\n\r\nHi, I am Talha, a Passionate Professional Graphic Designer designing brand logos & brand Identity for many Years, I have successfully designed brand logos with the complete corporate brand identity for different brands around the world.\r\n\r\n\r\n\r\nI also would love to do demanded designs, Just leave your request, I will respond instantly."
+               {detailJobs?.congViec?.moTa}
               </p>
               <p>
-                Plus - MOST SELLING!\r\nUS$65\r\n3 logo options + source file in Ai, EPS, SVG, PDF, and PSD\r\n\r\n2 Days Delivery\r\n5 Revisions\r\n3 concepts included\r\nLogo transparency\r\nVector file\r\nPrintable file\r\nSource file"
+                {detailJobs?.congViec?.moTaNgan}
               </p>
             </div>
             <hr />
             <div className='about-seller mt-5'>
-              <h4>About the seller</h4>
+              <h4>About the Seller</h4>
               <div className='flex'>
                 <img src="https://picsum.photos/50/50" alt="..." width={50}
                   height={50}
