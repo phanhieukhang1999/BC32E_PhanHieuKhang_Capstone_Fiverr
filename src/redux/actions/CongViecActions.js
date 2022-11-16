@@ -1,5 +1,5 @@
 import { congViecServiecs } from "../../services/congViecServices";
-import { LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC } from "../types/CongViecTypes";
+import { LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC } from "../types/CongViecTypes";
 
 
 export const layMenuCongViecAction = () => {
@@ -23,12 +23,35 @@ export const layMenuCongViecAction = () => {
     }
 
 }
-export const layCongViecTheoChiTietLoaiAction = (maChiTietLoai) => {
+export const layChiTietLoaiCongViecAction = (maChiTietLoai) => {
 
     return async (dispatch) => {
         try {
             console.log(maChiTietLoai);
             const result = await congViecServiecs.layChiTietLoaiCongViecService(maChiTietLoai)
+            console.log("result: ", result.data.content);
+            if (result.status === 200) {
+                dispatch({
+                    type: LAY_CHI_TIET_LOAI_CONG_VIEC,
+                    menuItem: result.data.content[0],
+
+                })
+
+            }
+        } catch (error) {
+            console.log("error: ", error.response?.data);
+
+        }
+    }
+
+}
+
+export const layCongViecTheoChiTietLoaiAction = (maChiTietLoai) => {
+
+    return async (dispatch) => {
+        try {
+            console.log(maChiTietLoai);
+            const result = await congViecServiecs.layCongViecTheoChiTietLoaiService(maChiTietLoai)
             console.log("result: ", result.data.content);
             if (result.status === 200) {
                 dispatch({

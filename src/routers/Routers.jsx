@@ -36,7 +36,7 @@ export default function Routers() {
                     element: <ListJob />
                 },
                 {
-                    path:'menuDetail/:id',
+                    path:':idMenu',
                     element: <MenuDetail/>
                 },
                 {

@@ -6,10 +6,9 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import './MenuItem.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { layCongViecTheoChiTietLoaiAction } from '../../../../../../redux/actions/CongViecActions';
+import { layChiTietLoaiCongViecAction, layCongViecTheoChiTietLoaiAction } from '../../../../../../redux/actions/CongViecActions';
 export default function MenuItem() {
-    // const { item } = props
-    // const navigate = useNavigate()
+   
     const dispatch = useDispatch()
     
     const {idMenu,idItem} = useParams()
@@ -18,7 +17,7 @@ export default function MenuItem() {
     // console.log("RENDER",menuItem.dsNhomChiTietLoai.filter(item => item.id == idItem));
 
     useEffect(() => {
-        dispatch(layCongViecTheoChiTietLoaiAction(idMenu));
+        dispatch(layChiTietLoaiCongViecAction(idMenu));
     }, [])
     return (
         <div className='menuItem py-36'>

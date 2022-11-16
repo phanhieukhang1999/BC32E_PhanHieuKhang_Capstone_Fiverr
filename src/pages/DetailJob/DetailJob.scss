@@ -1,0 +1,41 @@
+.DetailJob {
+  .container {
+    .row {
+      .left {
+        .review {
+          .bottom {
+            .left {
+              .rating {
+                .ant-progress {
+                  .ant-progress-bg {
+                    background-color: #ffc107;
+                  }
+                  .ant-progress-text {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .right {
+        .tab {
+          border: 1px solid #ccc;
+          .ant-tabs {
+            .ant-tabs-nav {
+              .ant-tabs-nav-wrap {
+                .ant-tabs-nav-list {
+                  .ant-tabs-tab.ant-tabs-tab-active {
+                    border-bottom-color: 2px solid green !important;
+                  }
+                }
+              }
+            }
+            
+          }
+        }
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@ export default function HeaderMenu() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(layCongViecTheoChiTietLoaiAction())
+        // dispatch(layCongViecTheoChiTietLoaiAction())
 
         dispatch(layMenuCongViecAction())
     }, [])
@@ -28,7 +28,7 @@ export default function HeaderMenu() {
     const renderMenuJob = () => {
 
         return menuJob?.map((menu, index) => {
-            return <Menu.SubMenu title={menu.tenLoaiCongViec} key={index.id} onTitleClick={() => navigate(`menuDetail/${menu.id}`)}>
+            return <Menu.SubMenu title={menu.tenLoaiCongViec} key={index.id} onTitleClick={() => navigate(`${menu.id}`)}>
                 
                 {menu.dsNhomChiTietLoai?.map((item, index) => {
                     return <Menu.Item key={index.id}>
