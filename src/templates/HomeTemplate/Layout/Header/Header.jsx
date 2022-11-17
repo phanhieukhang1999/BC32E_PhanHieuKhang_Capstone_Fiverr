@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { SearchOutlined } from '@ant-design/icons'
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 import './Header.scss'
 import HeaderMenu from './HeaderMenu/HeaderMenu'
 import HeaderSearch from './HeaderSearch/HeaderSearch'
+import { useSelector } from 'react-redux'
 export default function Header(props) {
   let scrollHeader = 'scrollHeader'
   const [offset, setOffset] = useState(0)
+
+  const { userLogin } = useSelector(state => state.AuthReducers)
+
   useEffect(() => {
     const onScroll = () => setOffset(window.pageYOffset);
     window.removeEventListener("scroll", onScroll);
@@ -51,12 +57,25 @@ export default function Header(props) {
             <li className="flex">
               <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Become a Seller</a>
             </li>
-            <li className="flex">
-              <NavLink rel="noopener noreferrer" to='/login' className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Sign In</NavLink>
-            </li>
-            <li className="flex">
-              <NavLink rel="noopener noreferrer" to='/register' className="nav-link flex items-center rounded text-gray-500 hover:text-green-500 "><span >Join</span></NavLink>
-            </li>
+            {userLogin.token ? (
+              <DropdownButton id="dropdown-basic-button" title={`Xin chào ${userLogin.user.name}`}>
+                <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+              </DropdownButton>
+            ) : null}
+
+            {!userLogin.token ? (
+              <>
+                <li className="flex">
+                  <NavLink rel="noopener noreferrer" to='/login' className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Sign In</NavLink>
+                </li>
+                <li className="flex">
+                  <NavLink rel="noopener noreferrer" to='/register' className="nav-link flex items-center rounded text-gray-500 hover:text-green-500 "><span >Join</span></NavLink>
+                </li>
+              </>
+            ) : null}
+
           </ul>
 
 

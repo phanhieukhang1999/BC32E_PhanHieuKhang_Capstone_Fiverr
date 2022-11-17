@@ -243,17 +243,17 @@ export default function DetailJob() {
           </div>
           <div className="right col-4 mt-3">
             <div className='tab'>
-              <Tabs size="large" defaultActiveKey="1" centered type='card'>
+              <Tabs size="large" defaultActiveKey="2" centered type='card'>
                 <Tabs.TabPane tab="Basic" key="1">
                   <OrderJob />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab="Stardard" key="2">
-                  <OrderJob />
+                  <OrderJob item={detailJobs}/>
                 </Tabs.TabPane>
                 <Tabs.TabPane tab="Premium" key="3">
                   <OrderJob />
                 </Tabs.TabPane>
-              </Tabs>
+              </Tabs >
             </div>
           </div>
         </div>

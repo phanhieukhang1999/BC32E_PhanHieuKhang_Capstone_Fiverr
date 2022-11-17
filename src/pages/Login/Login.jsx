@@ -1,14 +1,14 @@
 import { useFormik } from 'formik'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { dangNhapAction } from '../../redux/actions/AuthActions'
 import './Login.scss'
 export default function Login(props) {
   const dispatch = useDispatch()
   const { userLogin } = useSelector(state => state.AuthReducers)
   console.log("userLogin: ", userLogin);
-
+  const navigate = useNavigate()
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -48,7 +48,7 @@ export default function Login(props) {
                 <div className="mt-10">
                   <button className="bg-green-500 text-gray-100 text-xl p-2 w-full rounded-full tracking-wide
                           font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-green-600
-                          shadow-lg">
+                          shadow-lg"  onClick={() => navigate(-1)}>
                     Đăng nhập
                   </button>
                 </div>
