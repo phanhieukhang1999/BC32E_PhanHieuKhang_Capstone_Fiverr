@@ -1,6 +1,13 @@
 import React from 'react'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { USER_LOGIN } from '../../../util/settings/config'
 import './OrderJob.scss'
 export default function OrderJob() {
+
+    // if (!localStorage.getItem(USER_LOGIN)) {
+    //     return <Navigate to='/login' />
+    // }
+    const navigate = useNavigate()
     return (
         <div className="p-3">
             <div className="d-flex justify-content-between">
@@ -24,12 +31,26 @@ export default function OrderJob() {
                 <li className="h6 text-muted">✔️ Include source code</li>
             </ul>
             <div className='flex flex-col'>
-                <button className="btn-lg btn btn-success btn-block my-4">
+                {(localStorage.getItem(USER_LOGIN)) ? (
+                    <>
+                        <button className="btn-lg btn btn-success btn-block my-4" onClick={() => navigate(`/login`)}>
+                            Continue ($1000)
+                        </button>
+
+                        <div role="button" className="h5 text-success text-center">
+                            Compare Package
+                        </div>
+                    </>
+                ) : null}
+
+                <button className="btn-lg btn btn-success btn-block my-4" onClick={() => navigate(`/login`)}>
                     Continue ($1000)
                 </button>
+
                 <div role="button" className="h5 text-success text-center">
                     Compare Package
                 </div>
+
             </div>
         </div>
     )
