@@ -7,6 +7,7 @@ import './Header.scss'
 import HeaderMenu from './HeaderMenu/HeaderMenu'
 import HeaderSearch from './HeaderSearch/HeaderSearch'
 import { useSelector } from 'react-redux'
+import { TOKEN, USER_LOGIN } from '../../../../util/settings/config';
 export default function Header(props) {
   let scrollHeader = 'scrollHeader'
   const [offset, setOffset] = useState(0)
@@ -61,7 +62,12 @@ export default function Header(props) {
               <DropdownButton id="dropdown-basic-button" title={`Xin chào ${userLogin.user.name}`}>
                 <Dropdown.Item href="/admin">Admin</Dropdown.Item>
                 <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+                <Dropdown.Item href="/" onClick={() => {
+                  localStorage.removeItem(USER_LOGIN)
+                  localStorage.removeItem(TOKEN)
+                  
+                  window.location.reload()
+                }}>Logout</Dropdown.Item>
               </DropdownButton>
             ) : null}
 

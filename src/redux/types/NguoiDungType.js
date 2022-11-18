@@ -1,0 +1,1 @@
+export const GET_USER_ACTION = 'GET_USER_ACTION'

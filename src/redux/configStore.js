@@ -2,13 +2,14 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from 'redux-thunk'
 import { AuthReducers } from "./reducers/AuthReducers";
 import { CongViecReducers } from "./reducers/CongViecReducers";
+import { ThueCongViecReducers } from "./reducers/ThueCongViecReducers";
 const rootReducer = combineReducers({
     
     //state ứng dụng
     // CongViecReduers: CongViecReducers,
     CongViecReducers,
     AuthReducers,
-
+    ThueCongViecReducers,
 })
 
 export const store = createStore(

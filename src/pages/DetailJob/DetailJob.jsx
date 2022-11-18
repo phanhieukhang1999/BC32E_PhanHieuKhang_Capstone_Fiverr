@@ -9,15 +9,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { layCongViecChiTietAction } from '../../redux/actions/CongViecActions';
 import { useParams } from 'react-router-dom';
 export default function DetailJob() {
+  const { userLogin } = useSelector(state => state.AuthReducers)
 
   const { detailJob, jobId } = useParams()
   console.log("jobId: ", jobId);
   // console.log("detailJob: ", detailJob);
   const { detailJobs } = useSelector(state => state.CongViecReducers)
   console.log("detailJobs: ", detailJobs);
+  // let binhLuan = useSelector(state => state.binhLuanServices.binhLuan)
 
   const dispatch = useDispatch()
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     dispatch(layCongViecChiTietAction(jobId))
   }, [])
@@ -55,7 +59,7 @@ export default function DetailJob() {
               <h4 className="my-4">About This Gig</h4>
 
               <p className="text-muted h6 mb-4" style={{ lineHeight: 1.5 }}>
-               {detailJobs?.congViec?.moTa}
+                {detailJobs?.congViec?.moTa}
               </p>
               <p>
                 {detailJobs?.congViec?.moTaNgan}
@@ -63,25 +67,31 @@ export default function DetailJob() {
             </div>
             <hr />
             <div className='about-seller mt-5'>
-              <h4>About the Seller</h4>
-              <div className='flex'>
-                <img src="https://picsum.photos/50/50" alt="..." width={50}
-                  height={50}
-                  className="rounded-circle" />
-                <div>
-                  <p>admin</p>
-                  <span>abadasd</span>
-                  <div className='star'>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    (1123)
+              {userLogin.user ? (
+                <>
+                  <h4>About the Seller</h4>
+                  <div className='flex'>
+                    <img src={userLogin.user.avatar ? userLogin.user.avatar : 'https://picsum.photos/50/50'} alt="..." width={80}
+                      height={50}
+                      className="rounded-full mr-3" style={{ height: '80px' }} />
+                    <div>
+                      <p>{userLogin.user.avatar}</p>
+                      <span>{userLogin.user.name}</span>
+                      <p>{userLogin.user.skill}</p>
+                      <div className='star text-warning'>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        (999+)
+                      </div>
+                      <button className='mt-3 rounded border border-gray-600 py-2 px-4'>Contact me</button>
+                    </div>
                   </div>
-                  <button>Contact me</button>
-                </div>
-              </div>
+                </>
+              ) : null}
+
             </div>
 
             <div className='FAQ mt-5'>
@@ -207,36 +217,41 @@ export default function DetailJob() {
             </div>
 
             <div className="comment">
-              <div className='info'>
-                <div className='flex items-center mb-3'>
-                  <img src="https://picsum.photos/35/35" alt="..." className='rounded mr-2' />
-                  <span>admin</span>
-                  <i class="fa-solid fa-star text-warning ml-2"> 5</i>
-                </div>
-                <span>ádasdasdasd</span>
-                <div className='flex items-center mt-3'>
-                  <i class="fa-regular fa-thumbs-up"></i>
-                  <span className='mx-2'>Helpful</span>
-                  <i class="fa-regular fa-thumbs-down"></i>
-                  <span className='mx-2'>Not Helpful</span>
+              {userLogin.user ? (
+                <>
+                  <div className='info'>
+                    <div className='flex items-center mb-3'>
+                      <img src={userLogin.user.avatar ? userLogin.user.avatar : "https://picsum.photos/35/35"} alt="..." className='rounded mr-2' />
+                      <span>{userLogin.user.name}</span>
+                      <i class="fa-solid fa-star text-warning ml-2"> 5</i>
+                    </div>
+                    <span>ádasdasdasd</span>
+                    <div className='flex items-center mt-3'>
+                      <i class="fa-regular fa-thumbs-up"></i>
+                      <span className='mx-2'>Helpful</span>
+                      <i class="fa-regular fa-thumbs-down"></i>
+                      <span className='mx-2'>Not Helpful</span>
 
-                </div>
-              </div>
-              <div className='commet-bottom mt-5 flex'>
-                <div>
-                  <img src="https://picsum.photos/35/35" alt="..." className='rounded mr-2' />
-                </div>
-                <Form className='w-full'>
-                  <Form.Item name="content" className="mb-2 ">
-                    <Input.TextArea />
-                  </Form.Item>
-                  <div>
-                    <button className="btn btn-primary" type="submit">
-                      Add Comment
-                    </button>
+                    </div>
                   </div>
-                </Form>
-              </div>
+                  <div className='commet-bottom mt-5 flex'>
+                    <div>
+                      <img src="https://picsum.photos/35/35" alt="..." className='rounded mr-2' />
+                    </div>
+                    <Form className='w-full'>
+                      <Form.Item name="content" className="mb-2 ">
+                        <Input.TextArea />
+                      </Form.Item>
+                      <div>
+                        <button className="btn btn-primary" type="submit">
+                          Add Comment
+                        </button>
+                      </div>
+                    </Form>
+                  </div>
+                </>
+              ) : null}
+
             </div>
 
 
@@ -248,7 +263,7 @@ export default function DetailJob() {
                   <OrderJob />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab="Stardard" key="2">
-                  <OrderJob item={detailJobs}/>
+                  <OrderJob item={detailJobs} />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab="Premium" key="3">
                   <OrderJob />

@@ -1,13 +1,29 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
+import { ThongTinThueCongViec } from '../../../models/ThongTinThueCongViec'
+import { layCongViecChiTietAction } from '../../../redux/actions/CongViecActions'
+import { ThueCongViecActions } from '../../../redux/actions/ThueCongViecActions'
 import { USER_LOGIN } from '../../../util/settings/config'
 import './OrderJob.scss'
 export default function OrderJob(props) {
     const { item } = props
-    // if (!localStorage.getItem(USER_LOGIN)) {
-    //     return <Navigate to='/login' />
+
+    const { thueCongViec } = useSelector(state => state.ThueCongViecReducers)
+    console.log("thueCongViec: ", thueCongViec);
+    const dispatch = useDispatch()
+    const { userLogin } = useSelector(state => state.AuthReducers)
+
+    useEffect(() => {
+        dispatch(layCongViecChiTietAction(jobId))
+    }, [])
+    // const handleOrder = () => {
+    //     dispatch(ThueCongViecActions(thongTinThueCongViec))
+
     // }
+    const { detailJob, jobId } = useParams()
+    console.log("jobId: ", jobId);
+
     const { detailJobs } = useSelector(state => state.CongViecReducers)
 
     const navigate = useNavigate()
@@ -42,9 +58,22 @@ export default function OrderJob(props) {
                     </>
                 ) : (
                     <>
-                        <button className="btn-lg btn btn-success btn-block my-4" onClick={() => {
-                            alert('Thuê thành công')
-                        }}>
+                        <button className="btn-lg btn btn-success btn-block my-4"
+                            // onClick={handleOrder}
+                            // onClick={() => {
+                            //     alert('abc')
+                            // }}
+                            onClick={() => {
+                                const thongTinThueCongViec = new ThongTinThueCongViec()
+                                console.log("thongTinThueCongViec: ", thongTinThueCongViec);
+                                thongTinThueCongViec.id = thueCongViec.id
+                                thongTinThueCongViec.maCongViec = detailJobs.id
+                                thongTinThueCongViec.maNguoiThue = userLogin.id
+                                dispatch(ThueCongViecActions(thongTinThueCongViec))
+
+                            }}
+
+                        >
                             <span>Continue ({item?.congViec?.giaTien}$)</span>
                         </button>
 
