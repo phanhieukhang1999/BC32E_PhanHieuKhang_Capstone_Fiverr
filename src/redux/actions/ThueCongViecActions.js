@@ -12,13 +12,16 @@ export const ThueCongViecActions = (thongTinThueCongViec = new ThongTinThueCongV
             const result = await thueCongViecServices.thueCongViecService(thongTinThueCongViec)
             console.log("result: ", result);
             alertSuccess()
+            // if(alertSuccess()) {
+
+            //     navigate('/')
+            // }
             if (result.status === 201) {
                 dispatch({
                     type: THUE_CONG_VIEC,
                     thueCongViec: result.data.content,
                 })
-                
-                // navigate('/')
+
             }
 
         } catch (error) {

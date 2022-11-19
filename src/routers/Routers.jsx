@@ -59,7 +59,7 @@ export default function Routers() {
                     element: <Register />
                 },
                 {
-                    path: 'profile',
+                    path: 'profile/:idProfile',
                     element: <Profile/>
                 }
 

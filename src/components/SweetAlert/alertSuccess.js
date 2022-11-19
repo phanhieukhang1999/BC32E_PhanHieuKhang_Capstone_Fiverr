@@ -10,10 +10,10 @@ const alertSuccess = () => {
         title: "Bạn đã thuê thành công !",
         showConfirmButton: false,
         timer: 1500,
-    });
-    // navigate: () => {
-    //     navigate('/')
-    // }
+    }).then (function() {
+        window.location.href = "/";
+    }) 
+    
 
 };
 

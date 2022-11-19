@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from 'redux-thunk'
 import { AuthReducers } from "./reducers/AuthReducers";
 import { CongViecReducers } from "./reducers/CongViecReducers";
+import { NguoiDungReducers } from "./reducers/NguoiDungReducers";
 import { ThueCongViecReducers } from "./reducers/ThueCongViecReducers";
 const rootReducer = combineReducers({
     
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
     CongViecReducers,
     AuthReducers,
     ThueCongViecReducers,
+    NguoiDungReducers,
 })
 
 export const store = createStore(

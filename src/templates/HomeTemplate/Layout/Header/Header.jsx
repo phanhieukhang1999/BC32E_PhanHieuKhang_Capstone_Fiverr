@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { SearchOutlined } from '@ant-design/icons'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -13,7 +13,7 @@ export default function Header(props) {
   const [offset, setOffset] = useState(0)
 
   const { userLogin } = useSelector(state => state.AuthReducers)
-
+  const navigate = useNavigate()
   useEffect(() => {
     const onScroll = () => setOffset(window.pageYOffset);
     window.removeEventListener("scroll", onScroll);
@@ -59,9 +59,9 @@ export default function Header(props) {
               <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Become a Seller</a>
             </li>
             {userLogin.token ? (
-              <DropdownButton id="dropdown-basic-button" title={`Xin chào ${userLogin.user.name}`}>
-                <Dropdown.Item href="/admin">Admin</Dropdown.Item>
-                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+              <DropdownButton id="dropdown-basic-button" title={`Hi ${userLogin.user.name}`} >
+                {/* <Dropdown.Item href="/admin">Admin</Dropdown.Item> */}
+                <Dropdown.Item href={`/profile/${userLogin.user.id}`}>Profile</Dropdown.Item>
                 <Dropdown.Item href="/" onClick={() => {
                   localStorage.removeItem(USER_LOGIN)
                   localStorage.removeItem(TOKEN)
