@@ -1,3 +1,4 @@
+import moment from 'moment'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
@@ -66,10 +67,14 @@ export default function OrderJob(props) {
                             onClick={() => {
                                 const thongTinThueCongViec = new ThongTinThueCongViec()
                                 console.log("thongTinThueCongViec: ", thongTinThueCongViec);
-                                thongTinThueCongViec.id = thueCongViec.id
-                                thongTinThueCongViec.maCongViec = detailJobs.id
-                                thongTinThueCongViec.maNguoiThue = userLogin.id
+
+                                thongTinThueCongViec.maCongViec = detailJobs?.congViec?.id
+                                thongTinThueCongViec.maNguoiThue = userLogin?.user?.id
+                                thongTinThueCongViec.ngayThue = moment().format('DD/MM/YYYY')
+                                thongTinThueCongViec.hoanThanh = true
                                 dispatch(ThueCongViecActions(thongTinThueCongViec))
+                                // navigate('/')
+
 
                             }}
 

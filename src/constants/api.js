@@ -5,9 +5,9 @@ const TokenCybersoft = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb29
 
 const baseURL = "https://fiverrnew.cybersoft.edu.vn/api/"
 
-let Authorization = 'Bearer ' + localStorage.getItem(TOKEN)
+let token = localStorage.getItem(TOKEN)
 
-const token = 'token'
+// const token = 'token'
 
 export const api = axios.create()
 
@@ -16,7 +16,8 @@ api.interceptors.request.use((config) => {
         ...config,
         headers: {
             TokenCybersoft,
-            Authorization,
+            token,
+            // token,
         },
         baseURL,
     }
