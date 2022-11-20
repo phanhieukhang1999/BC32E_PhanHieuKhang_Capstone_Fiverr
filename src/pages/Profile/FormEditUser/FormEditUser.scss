@@ -1,0 +1,19 @@
+.form-edit {
+  .ant-col-sm-8 {
+    max-width: 100%;
+  }
+  .ant-col-xs-10 {
+    max-width: 100%;
+  }
+  .ant-form-item-label {
+    text-align: left;
+  }
+}
+
+.ant-select-dropdown {
+  z-index: 1080 !important;
+}
+
+.ant-picker-dropdown {
+    z-index: 1080 !important;
+}

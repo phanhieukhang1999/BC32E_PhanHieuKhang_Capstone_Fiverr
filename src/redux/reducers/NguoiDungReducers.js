@@ -1,24 +1,20 @@
-import { GET_USER_ACTION, GET_USER_ID_ACTION } from "../types/NguoiDungType"
+import { GET_USER_ACTION, GET_USER_ID_ACTION, PUT_USER_ID_ACTION } from "../types/NguoiDungType"
 
 
 const stateDefault = {
     user: [],
     userId: {
-        "id": 1578,
-        "name": "khang",
-        "email": "khang@gmail.com",
+        "id": 0,
+        "name": "",
+        "email": "",
         "password": "",
-        "phone": "0123456789",
-        "birthday": "05/11/1999",
+        "phone": "",
+        "birthday": "",
         "avatar": "",
         "gender": true,
-        "role": "USER",
-        "skill": [
-            "HTML"
-        ],
-        "certification": [
-            "string"
-        ],
+        "role": "",
+        "skill": [],
+        "certification": [],
         "bookingJob": []
     },
 }
@@ -32,6 +28,11 @@ export const NguoiDungReducers = (state = stateDefault, action) => {
         }
 
         case GET_USER_ID_ACTION: {
+            state.userId = action.userId
+            return { ...state }
+        }
+
+        case PUT_USER_ID_ACTION: {
             state.userId = action.userId
             return { ...state }
         }

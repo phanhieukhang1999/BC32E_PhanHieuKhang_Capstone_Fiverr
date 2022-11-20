@@ -1,93 +1,183 @@
-import React from 'react'
-import { Form, Input, DatePicker, Select } from "antd";
-
+import React, { useEffect, useState } from 'react'
+import {
+    DatePicker,
+    Form,
+    Input,
+    Select,
+} from "antd";
+import './FormEditUser.scss'
+import moment from 'moment';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserIdAction, putUserIdAction } from '../../../redux/actions/NguoiDungActions';
+import { useParams } from 'react-router-dom';
+import { nguoiDungServices } from '../../../services/nguoiDungServices';
+import { DANG_NHAP_ACTION } from '../../../redux/types/AuthType';
+import { dangNhapAction } from '../../../redux/actions/AuthActions';
+import { useFormik } from 'formik';
 const { Option } = Select;
+const formItemLayout = {
+    labelCol: { xs: { span: 10 }, sm: { span: 9 } },
+    wrapperCol: { xs: { span: 10 }, sm: { span: 8 } },
+};
 
 export default function FormEditUser({ setshowModal }) {
+    // const { userLogin } = useSelector(state => state.AuthReducers)
+    const { userId } = useSelector(state => state.NguoiDungReducers)
+    console.log("userId: ", userId);
+    const dispatch = useDispatch()
+    const { profile, idProfile } = useParams()
+    // const [getUserIdAction, setGetUserIdAction] = useState(false);
+
     const [form] = Form.useForm();
+    const [componentSize, setComponentSize] = useState('default');
+    const onFormLayoutChange = ({ size }) => {
+        setComponentSize(size);
+    }
+    // const onFinish = (values) => {
+    //     setshowModal(false);
+    //     values.email = userId.email;
+    //     values.gender = userId.gender;
+    //     values.birthday = moment(values.birthday).format("YYYY-MM-DD");
+    //     let result = nguoiDungServices.putUserIdAction(userId.id, values);
+    //     // dispatch(putUserIdAction(idProfile))
+    //     result.then(() => setGetUserIdAction(Math.random())).catch((err) => console.log(err));
+    // };
+    // useEffect(() => {
+    //     if (getUserIdAction && userLogin.token) {
+    //         nguoiDungServices
+    //             .getUserService(userLogin.user.id)
+    //             .then((result) => {
+    //                 dispatch(dangNhapAction({ user: { ...result.data }, token: userLogin.token }));
+    //             })
+    //             .catch((err) => console.log(err));
+    //     }
 
+    //     return () => setGetUserIdAction(false);
+    // }, [getUserIdAction]);
+
+    // useEffect(() => {
+    //     dispatch(getUserIdAction(idProfile))
+    // }, [])
+
+    // const onFinish = (values) => {
+    //     setshowModal(false);
+    //     values.email = userId.email;
+    //     values.gender = userId.gender;
+    //     values.birthday = moment(values.birthday).format("YYYY-MM-DD");
+    //     dispatch(putUserIdAction(values))
+
+    // }
+
+    useEffect(() => {
+        dispatch(getUserIdAction(idProfile))
+    }, [])
+
+    const formik = useFormik({
+        enableReinitialize: true,
+        initialValues: {
+            name: userId?.name || '',
+            email: userId?.email || '',
+            phone: userId?.phone || '',
+            birthday: moment(userId?.birthday) || '',
+            skill: userId?.skill || '',
+            certification: userId?.certification || '',
+
+        },
+        onSubmit: values => {
+
+            console.log("values: ", values);
+            dispatch(putUserIdAction(values))
+        }
+
+    })
+
+    const handleChangeSkill = (skill) => {
+        // let skill = value;
+        formik.setFieldValue('skill', skill);
+
+    }
+    const handleChangeCertification = (certification) => {
+        // let skill = value;
+        formik.setFieldValue('certification', certification);
+
+    }
     return (
-        <div>
+        <div className='form-edit'>
             <Form
-
-                // form={form}
+                onSubmit={formik.handleSubmit}
+                {...formItemLayout}
+                form={form}
                 // name="updateInfoUser"
                 // onFinish={onFinish}
                 // initialValues={{
-                //     name: infoUserLogin?.user?.name,
-                //     phone: infoUserLogin?.user?.phone,
-                //     skill: infoUserLogin?.user?.skill,
-                //     certification: infoUserLogin?.user?.certification,
-                //     birthday: moment(infoUserLogin?.user?.birthday),
+                //     name: userId?.name,
+                //     email: userId?.email,
+                //     phone: userId?.phone,
+                //     skill: userId?.skill,
+                //     certification: userId?.certification,
+                //     birthday: moment(userId?.birthday),
                 // }}
                 scrollToFirstError
                 size="large"
             >
                 <Form.Item
-                    name="name"
+
                     label="Name"
-                    rules={[
-                        {
-                            required: true,
-                            message: "Please input your name!",
-                            whitespace: true,
-                        },
-                        {
-                            message: "Your name is invalid!",
-                            type: "string",
-                            pattern:
-                                /^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$/,
-                        },
-                    ]}
+
                 >
-                    <Input />
+                    <Input name="name" value={formik.values.name} onChange={formik.handleChange} />
+                </Form.Item>
+                <Form.Item
+
+                    label="Email"
+
+                >
+                    <Input name="email" value={formik.values.email} onChange={formik.handleChange} />
                 </Form.Item>
 
                 <Form.Item
-                    name="phone"
-                    label="Phone Number"
-                    rules={[
-                        { required: true, message: "Please input your phone number!" },
-                        {
-                            message: "Your phone number is invalid!",
-                            pattern: /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/,
-                        },
-                    ]}
+
+                    label="Số điện thoại"
+
                 >
-                    <Input style={{ width: "100%" }} />
+                    <Input style={{ width: "100%" }} name="phone" value={formik.values.phone} onChange={formik.handleChange} />
                 </Form.Item>
 
                 <Form.Item
-                    label="Birthday"
-                    name="birthday"
-                    rules={[{ required: true, message: "Please select your birthday!" }]}
+                    label="Ngày sinh"
+
+
                 >
-                    <DatePicker format={"DD/MM/YYYY"} />
+                    <DatePicker format={"DD/MM/YYYY"} value={moment(formik.values.birthday)} />
                 </Form.Item>
 
-                <Form.Item name="skill" label="Skill">
-                    <Select placeholder="select your skills">
-                        <Option value="LoL">LoL</Option>
-                        <Option value="WEB">WEB</Option>
-                        <Option value="DESIGN">DESIGN</Option>
+                <Form.Item label="Skill" >
+                    <Select name="skill" mode="multiple" placeholder="Select your skills" value={formik.values.skill} onChange={handleChangeSkill}>
+                        <Option value="front-end">Front-end Developer</Option>
+                        <Option value="back-end">Back-end Developer</Option>
+                        <Option value="fullstack">Fullstack</Option>
+                        <Option value="reactjs">React Js</Option>
+                        <Option value="nodejs">Node Js</Option>
                     </Select>
                 </Form.Item>
-                <Form.Item name="certification" label="Certification">
-                    <Select placeholder="select your certification">
-                        <Option value="DIB">DIB</Option>
-                        <Option value="PYNOW">PYNOW</Option>
+                <Form.Item label="Certification">
+                    <Select name="certification" mode="multiple" placeholder="Select your certification" value={formik.values.certification} onChange={handleChangeCertification}>
+                        <Option value="cybersoft">CyberSoft Academy</Option>
+                        <Option value="aws">AWS</Option>
                     </Select>
                 </Form.Item>
+                
                 <div className="text-center">
                     <button
                         onClick={() => setshowModal(false)}
-                        type="button"
+
                         className="btn btn-outline-danger mr-3"
                     >
                         Close
                     </button>
 
-                    <button type="submit" className="btn btn-outline-success">
+                    <button type='submit' className="btn btn-outline-success" >
+                        
                         Update
                     </button>
                 </div>

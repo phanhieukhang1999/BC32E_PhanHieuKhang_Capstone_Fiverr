@@ -50,7 +50,7 @@ export default function Profile() {
                 <h4 className='card-title mx-auto mt-2'>{userId.name}</h4>
 
                 <div className='edit items-center text-center'>
-                  <i class="fa-solid fa-pencil"></i>
+                  <i class="fa-solid fa-pencil" onClick={() => setshowModal(true)} role="button"></i>
                 </div>
               </div>
               <div className="card-body">
@@ -159,14 +159,14 @@ export default function Profile() {
                     <h5>Certification</h5>
                     <b className='text-blue-500' onClick={() => setshowModal(true)} role="button">Edit</b>
                   </div>
-                  <p>CyberSoft Acdecamy</p>
+                  <p>CyberSoft Academy</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Modal show={showModal} onHide={() => setshowModal(false)}>
+      <Modal  show={showModal} onHide={() => setshowModal(false)}>
         <Modal.Header style={{justifyContent:'center'}}>
           <Modal.Title >
             <span className='text-center'>Cập nhật thông tin</span>
