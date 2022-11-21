@@ -1,2 +1,5 @@
 
 export const THUE_CONG_VIEC = 'THUE_CONG_VIEC'
+
+export const DS_CONG_VIEC_DA_THUE = 'DS_CONG_VIEC_DA_THUE'
+

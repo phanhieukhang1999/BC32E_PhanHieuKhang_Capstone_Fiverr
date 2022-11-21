@@ -17,4 +17,17 @@ const alertSuccess = () => {
 
 };
 
-export { alertSuccess };
+const alertDeleteSuccess = () => {
+    // const navigate = useNavigate()
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Bạn đã xóa thành công !",
+        showConfirmButton: false,
+        timer: 1500,
+    })
+    
+
+};
+
+export { alertSuccess, alertDeleteSuccess };

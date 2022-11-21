@@ -12,7 +12,7 @@ export const getUserAction = () => {
             if (result.status === 200) {
                 dispatch({
                     type: GET_USER_ACTION,
-                    user: result.data.content.bookingJob,
+                    user: result.data.content,
 
                 })
             }
@@ -44,16 +44,18 @@ export const getUserIdAction = (userId) => {
 }
 
 export const putUserIdAction = (userId) => {
+    console.log("userId: ", userId);
     return async (dispatch) => {
         try {
             const result = await nguoiDungServices.putUserIdService(userId)
             console.log("result: ", result.data.content);
-
+            alert('update thành công')
             if (result.status === 200) {
                 dispatch({
                     type: PUT_USER_ID_ACTION,
                     userId: result.data.content
-
+                    // type: GET_USER_ID_ACTION,
+                    // userId: result.data.content
                 })
             }
         } catch (error) {

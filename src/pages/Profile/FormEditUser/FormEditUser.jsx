@@ -14,6 +14,7 @@ import { nguoiDungServices } from '../../../services/nguoiDungServices';
 import { DANG_NHAP_ACTION } from '../../../redux/types/AuthType';
 import { dangNhapAction } from '../../../redux/actions/AuthActions';
 import { useFormik } from 'formik';
+import { Button } from 'react-bootstrap';
 const { Option } = Select;
 const formItemLayout = {
     labelCol: { xs: { span: 10 }, sm: { span: 9 } },
@@ -26,47 +27,14 @@ export default function FormEditUser({ setshowModal }) {
     console.log("userId: ", userId);
     const dispatch = useDispatch()
     const { profile, idProfile } = useParams()
-    // const [getUserIdAction, setGetUserIdAction] = useState(false);
+
 
     const [form] = Form.useForm();
     const [componentSize, setComponentSize] = useState('default');
     const onFormLayoutChange = ({ size }) => {
         setComponentSize(size);
     }
-    // const onFinish = (values) => {
-    //     setshowModal(false);
-    //     values.email = userId.email;
-    //     values.gender = userId.gender;
-    //     values.birthday = moment(values.birthday).format("YYYY-MM-DD");
-    //     let result = nguoiDungServices.putUserIdAction(userId.id, values);
-    //     // dispatch(putUserIdAction(idProfile))
-    //     result.then(() => setGetUserIdAction(Math.random())).catch((err) => console.log(err));
-    // };
-    // useEffect(() => {
-    //     if (getUserIdAction && userLogin.token) {
-    //         nguoiDungServices
-    //             .getUserService(userLogin.user.id)
-    //             .then((result) => {
-    //                 dispatch(dangNhapAction({ user: { ...result.data }, token: userLogin.token }));
-    //             })
-    //             .catch((err) => console.log(err));
-    //     }
 
-    //     return () => setGetUserIdAction(false);
-    // }, [getUserIdAction]);
-
-    // useEffect(() => {
-    //     dispatch(getUserIdAction(idProfile))
-    // }, [])
-
-    // const onFinish = (values) => {
-    //     setshowModal(false);
-    //     values.email = userId.email;
-    //     values.gender = userId.gender;
-    //     values.birthday = moment(values.birthday).format("YYYY-MM-DD");
-    //     dispatch(putUserIdAction(values))
-
-    // }
 
     useEffect(() => {
         dispatch(getUserIdAction(idProfile))
@@ -78,12 +46,13 @@ export default function FormEditUser({ setshowModal }) {
             name: userId?.name || '',
             email: userId?.email || '',
             phone: userId?.phone || '',
-            birthday: moment(userId?.birthday) || '',
+            birthday: moment(userId?.birthday).format("DD/MM/YYYY") || '',
             skill: userId?.skill || '',
             certification: userId?.certification || '',
 
         },
         onSubmit: values => {
+            
 
             console.log("values: ", values);
             dispatch(putUserIdAction(values))
@@ -102,12 +71,12 @@ export default function FormEditUser({ setshowModal }) {
 
     }
     return (
-        <div className='form-edit'>
+        <>
             <Form
                 onSubmit={formik.handleSubmit}
+
                 {...formItemLayout}
                 form={form}
-                // name="updateInfoUser"
                 // onFinish={onFinish}
                 // initialValues={{
                 //     name: userId?.name,
@@ -148,11 +117,12 @@ export default function FormEditUser({ setshowModal }) {
 
 
                 >
-                    <DatePicker format={"DD/MM/YYYY"} value={moment(formik.values.birthday)} />
+                    <DatePicker name='birthday' format={"DD/MM/YYYY"} value={moment(formik.values.birthday)} />
                 </Form.Item>
 
                 <Form.Item label="Skill" >
                     <Select name="skill" mode="multiple" placeholder="Select your skills" value={formik.values.skill} onChange={handleChangeSkill}>
+                        
                         <Option value="front-end">Front-end Developer</Option>
                         <Option value="back-end">Back-end Developer</Option>
                         <Option value="fullstack">Fullstack</Option>
@@ -166,22 +136,38 @@ export default function FormEditUser({ setshowModal }) {
                         <Option value="aws">AWS</Option>
                     </Select>
                 </Form.Item>
-                
-                <div className="text-center">
+                <Form.Item className="text-right">
                     <button
                         onClick={() => setshowModal(false)}
 
-                        className="btn btn-outline-danger mr-3"
+                        className="btn btn-primary  mr-3"
                     >
                         Close
                     </button>
 
-                    <button type='submit' className="btn btn-outline-success" >
-                        
+                    <button type='submit' className="btn btn-success" onClick={() => {
+                        // console.log()
+                    }}>
                         Update
                     </button>
-                </div>
+                </Form.Item>
+                {/* <div className="text-center">
+                <button
+                    onClick={() => setshowModal(false)}
+
+                    className="btn btn-outline-danger mr-3"
+                >
+                    Close
+                </button>
+
+                <button type='submit' className="btn btn-outline-success" onClick={() => {
+                    // console.log()
+                }}>
+
+                    Update
+                </button>
+            </div> */}
             </Form>
-        </div>
+        </>
     )
 }
