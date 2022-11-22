@@ -1,6 +1,6 @@
 import { nguoiDungServices } from "../../services/nguoiDungServices";
 import { GET_USER_ACTION, GET_USER_ID_ACTION, PUT_USER_ID_ACTION } from "../types/NguoiDungType";
-import { alertSuccess } from "../../components/SweetAlert/alertSuccess";
+import { alertEditSuccess, alertSuccess } from "../../components/SweetAlert/alertSuccess";
 
 export const getUserAction = () => {
     return async (dispatch) => {
@@ -43,21 +43,22 @@ export const getUserIdAction = (userId) => {
     }
 }
 
-export const putUserIdAction = (userId) => {
-    console.log("userId: ", userId);
+export const putUserIdAction = (values) => {
     return async (dispatch) => {
         try {
-            const result = await nguoiDungServices.putUserIdService(userId)
+            const result = await nguoiDungServices.putUserIdService(values)
             console.log("result: ", result.data.content);
-            alert('update thành công')
-            if (result.status === 200) {
-                dispatch({
-                    type: PUT_USER_ID_ACTION,
-                    userId: result.data.content
-                    // type: GET_USER_ID_ACTION,
-                    // userId: result.data.content
-                })
-            }
+            alertEditSuccess()
+            // if (result.status === 200) {
+            //     dispatch({
+            //         type: PUT_USER_ID_ACTION,
+            //         userId: result.data?.content
+            //         // type: GET_USER_ID_ACTION,
+            //         // userId: result.data?.content
+            //     })
+            // }
+            // dispatch(getUserIdAction())
+
         } catch (error) {
             console.log("error: ", error.response?.data);
 

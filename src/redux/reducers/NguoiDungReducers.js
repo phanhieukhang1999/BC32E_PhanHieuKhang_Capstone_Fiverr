@@ -33,10 +33,10 @@ export const NguoiDungReducers = (state = stateDefault, action) => {
             return { ...state }
         }
 
-        // case PUT_USER_ID_ACTION: {
-        //     state.userId = action.userId
-        //     return { ...state }
-        // }
+        case PUT_USER_ID_ACTION: {
+            state.userId = action.userId
+            return { ...state }
+        }
         default: return { ...state }
     }
 }

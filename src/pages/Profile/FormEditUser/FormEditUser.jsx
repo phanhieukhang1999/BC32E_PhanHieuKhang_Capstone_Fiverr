@@ -14,6 +14,7 @@ import { nguoiDungServices } from '../../../services/nguoiDungServices';
 import { DANG_NHAP_ACTION } from '../../../redux/types/AuthType';
 import { dangNhapAction } from '../../../redux/actions/AuthActions';
 import { useFormik } from 'formik';
+import { Formik } from 'formik';
 import { Button } from 'react-bootstrap';
 const { Option } = Select;
 const formItemLayout = {
@@ -24,12 +25,10 @@ const formItemLayout = {
 export default function FormEditUser({ setshowModal }) {
     // const { userLogin } = useSelector(state => state.AuthReducers)
     const { userId } = useSelector(state => state.NguoiDungReducers)
-    console.log("userId: ", userId);
     const dispatch = useDispatch()
     const { profile, idProfile } = useParams()
 
-
-    const [form] = Form.useForm();
+    const [form] = Form.useForm()
     const [componentSize, setComponentSize] = useState('default');
     const onFormLayoutChange = ({ size }) => {
         setComponentSize(size);
@@ -37,24 +36,25 @@ export default function FormEditUser({ setshowModal }) {
 
 
     useEffect(() => {
+        // lấy thông tin user
         dispatch(getUserIdAction(idProfile))
     }, [])
 
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            name: userId?.name || '',
-            email: userId?.email || '',
-            phone: userId?.phone || '',
-            birthday: moment(userId?.birthday).format("DD/MM/YYYY") || '',
-            skill: userId?.skill || '',
-            certification: userId?.certification || '',
+            id: userId?.id,
+            name: userId?.name,
+            email: userId?.email,
+            phone: userId?.phone,
+            birthday: moment(userId?.birthday).format("DD/MM/YYYY"),
+            gender: userId?.gender,
+            role: userId?.role,
+            skill: userId?.skill,
+            certification: userId?.certification,
 
         },
-        onSubmit: values => {
-            
-
-            console.log("values: ", values);
+        onSubmit: (values) => {
             dispatch(putUserIdAction(values))
         }
 
@@ -70,88 +70,83 @@ export default function FormEditUser({ setshowModal }) {
         formik.setFieldValue('certification', certification);
 
     }
+
     return (
-        <>
-            <Form
-                onSubmit={formik.handleSubmit}
 
-                {...formItemLayout}
-                form={form}
-                // onFinish={onFinish}
-                // initialValues={{
-                //     name: userId?.name,
-                //     email: userId?.email,
-                //     phone: userId?.phone,
-                //     skill: userId?.skill,
-                //     certification: userId?.certification,
-                //     birthday: moment(userId?.birthday),
-                // }}
-                scrollToFirstError
-                size="large"
+        <Form
+            onFinish={formik.handleSubmit}
+
+            {...formItemLayout}
+            // form={form}
+            // name='formEditUser'
+
+            // scrollToFirstError
+            size="large"
+        >
+            <Form.Item
+
+                label="Name"
+
             >
-                <Form.Item
+                <Input name="name" value={formik.values.name} onChange={formik.handleChange} />
+            </Form.Item>
+            <Form.Item
 
-                    label="Name"
+                label="Email"
 
+            >
+                <Input name="email" value={formik.values.email} onChange={formik.handleChange} />
+            </Form.Item>
+
+            <Form.Item
+
+                label="Số điện thoại"
+
+            >
+                <Input style={{ width: "100%" }} name="phone" value={formik.values.phone} onChange={formik.handleChange} />
+            </Form.Item>
+
+            <Form.Item
+                label="Ngày sinh"
+
+
+            >
+                <DatePicker name='birthday' format={"DD/MM/YYYY"} value={moment(formik.values.birthday)} />
+            </Form.Item>
+
+            <Form.Item label="Skill" >
+                <Select name="skill" mode="multiple" placeholder="Select your skills" value={formik.values.skill} onChange={handleChangeSkill}>
+
+                    <Option value="Front-end Developer">Front-end Developer</Option>
+                    <Option value="Back-end Developer ">Back-end Developer</Option>
+                    <Option value="Fullstack">Fullstack</Option>
+                    <Option value="React Js">React Js</Option>
+                    <Option value="Node Js">Node Js</Option>
+                </Select>
+            </Form.Item>
+            <Form.Item label="Certification">
+                <Select name="certification" mode="multiple" placeholder="Select your certification" value={formik.values.certification} onChange={handleChangeCertification}>
+                    <Option value="CyberSoft Academy">CyberSoft Academy</Option>
+                    <Option value="AWS">AWS</Option>
+                </Select>
+            </Form.Item>
+            <Form.Item className="text-right">
+                <button
+                    onClick={() => setshowModal(false)}
+
+                    className="btn btn-primary  mr-3"
                 >
-                    <Input name="name" value={formik.values.name} onChange={formik.handleChange} />
-                </Form.Item>
-                <Form.Item
+                    Close
+                </button>
 
-                    label="Email"
+                <button type='submit' className="btn btn-success" onClick={() => {
+                    dispatch(putUserIdAction(idProfile))
 
-                >
-                    <Input name="email" value={formik.values.email} onChange={formik.handleChange} />
-                </Form.Item>
-
-                <Form.Item
-
-                    label="Số điện thoại"
-
-                >
-                    <Input style={{ width: "100%" }} name="phone" value={formik.values.phone} onChange={formik.handleChange} />
-                </Form.Item>
-
-                <Form.Item
-                    label="Ngày sinh"
-
-
-                >
-                    <DatePicker name='birthday' format={"DD/MM/YYYY"} value={moment(formik.values.birthday)} />
-                </Form.Item>
-
-                <Form.Item label="Skill" >
-                    <Select name="skill" mode="multiple" placeholder="Select your skills" value={formik.values.skill} onChange={handleChangeSkill}>
-                        
-                        <Option value="front-end">Front-end Developer</Option>
-                        <Option value="back-end">Back-end Developer</Option>
-                        <Option value="fullstack">Fullstack</Option>
-                        <Option value="reactjs">React Js</Option>
-                        <Option value="nodejs">Node Js</Option>
-                    </Select>
-                </Form.Item>
-                <Form.Item label="Certification">
-                    <Select name="certification" mode="multiple" placeholder="Select your certification" value={formik.values.certification} onChange={handleChangeCertification}>
-                        <Option value="cybersoft">CyberSoft Academy</Option>
-                        <Option value="aws">AWS</Option>
-                    </Select>
-                </Form.Item>
-                <Form.Item className="text-right">
-                    <button
-                        onClick={() => setshowModal(false)}
-
-                        className="btn btn-primary  mr-3"
-                    >
-                        Close
-                    </button>
-
-                    <button type='submit' className="btn btn-success" onClick={() => {
-                        // console.log()
-                    }}>
-                        Update
-                    </button>
-                </Form.Item>
-                {/* <div className="text-center">
+                }}>
+                    Update
+                </button>
+            </Form.Item>
+            {/* <div className="text-center">
                 <button
                     onClick={() => setshowModal(false)}
 
@@ -167,7 +162,7 @@ export default function FormEditUser({ setshowModal }) {
                     Update
                 </button>
             </div> */}
-            </Form>
-        </>
+        </Form>
+
     )
 }

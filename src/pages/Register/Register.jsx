@@ -1,9 +1,41 @@
 import React from 'react'
+import { Form, Input, Select, DatePicker } from "antd";
+
 import { Link } from 'react-router-dom'
 import '../Login/Login.scss'
+import { useFormik } from 'formik';
+
+
+const { Option } = Select;
+const formItemLayout = {
+  labelCol: { xs: { span: 10 }, sm: { span: 9 } },
+  wrapperCol: { xs: { span: 10 }, sm: { span: 8 } },
+};
+
 export default function Register() {
+  const [form] = Form.useForm();
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      password: '',
+      phone: '',
+      birthday: '',
+      gender: '',
+      skill: '',
+      certification: '',
+
+    },
+
+    onSubmit: values => {
+
+
+      console.log('values', values)
+
+    }
+  })
   return (
-    <div className="selection:bg-green-500 selection:text-white py-36">
+    <form onSubmit={formik.handleSubmit} className="selection:bg-green-500 selection:text-white py-36">
       <div className=" bg-green-100 flex justify-center items-center">
         <div className="p-8 flex-1">
           <div className="w-96 bg-white rounded-3xl mx-auto overflow-hidden shadow-xl">
@@ -14,17 +46,71 @@ export default function Register() {
             </div>
             <div className="px-10 pt-2 pb-8 bg-white rounded-tr-4xl">
               <h1 className="text-2xl font-semibold text-gray-900">Welcome back Fiverr !</h1>
-              <form className="mt-6" action method="POST">
-                <div className="relative">
-                  <input id="email" name="email" type="text" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-rose-600" placeholder="john@doe.com" />
-                  <label htmlFor="email" className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email address</label>
-                </div>
-                <div className="mt-10 relative">
-                  <input id="password" type="password" name="password" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-rose-600" placeholder="Password" />
-                  <label htmlFor="password" className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
-                </div>
+              <Form {...formItemLayout}
+                form={form} className="mt-6" action method="POST">
+                <Form.Item
+                  name="name"
+                  label="Name"
+
+                >
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name="email"
+                  label="E-mail"
+
+                >
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name="password"
+                  label="Mật khẩu"
+
+                >
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name="phone"
+                  label="Số điện thoại"
+
+                >
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  label="Ngày sinh"
+
+
+                >
+                  <DatePicker name='birthday' format={"DD/MM/YYYY"} />
+                </Form.Item>
+                <Form.Item
+                  name="gender"
+                  label="Gender"
+
+                >
+                  <Select placeholder="select your gender">
+                    <Option value={true}>Male</Option>
+                    <Option value={false}>Female</Option>
+                  </Select>
+                </Form.Item>
+                <Form.Item label="Skill" >
+                  <Select name="skill" mode="multiple" placeholder="Select your skills" >
+
+                    <Option value="front-end">Front-end Developer</Option>
+                    <Option value="back-end">Back-end Developer</Option>
+                    <Option value="fullstack">Fullstack</Option>
+                    <Option value="reactjs">React Js</Option>
+                    <Option value="nodejs">Node Js</Option>
+                  </Select>
+                </Form.Item>
+                <Form.Item label="Certification">
+                  <Select name="certification" mode="multiple" placeholder="Select your certification" >
+                    <Option value="cybersoft">CyberSoft Academy</Option>
+                    <Option value="aws">AWS</Option>
+                  </Select>
+                </Form.Item>
                 <input type="sumbit" defaultValue="Sign in" className="mt-10 px-4 py-2 rounded bg-green-500 hover:bg-green-400 text-white font-semibold text-center block w-full focus:outline-none focus:ring focus:ring-offset-2 focus:ring-green-500 focus:ring-opacity-80 cursor-pointer" />
-              </form>
+              </Form>
               <div className="text-center mt-3">
                 Not registered yet?{" "}
                 <span className="link-primary" >
@@ -36,6 +122,6 @@ export default function Register() {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   )
 }

@@ -30,4 +30,19 @@ const alertDeleteSuccess = () => {
 
 };
 
-export { alertSuccess, alertDeleteSuccess };
+const alertEditSuccess = () => {
+    // const navigate = useNavigate()
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Bạn đã cập nhật thành công !",
+        showConfirmButton: false,
+        timer: 1500,
+    }).then (function() {
+        window.location.reload()
+    }) 
+    
+
+};
+
+export { alertSuccess, alertDeleteSuccess, alertEditSuccess };

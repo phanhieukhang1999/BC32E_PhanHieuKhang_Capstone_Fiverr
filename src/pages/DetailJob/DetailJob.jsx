@@ -43,7 +43,7 @@ export default function DetailJob() {
             </p>
             <h2>{detailJobs?.congViec?.tenCongViec}</h2>
             <div className='user flex'>
-              <img src="https://picsum.photos/35/35" alt="" className='rounded-full mr-2' />
+              <img style={{heigth: '35px', width: '35px'}} src={detailJobs?.avatar ? detailJobs?.avatar : "https://picsum.photos/35/35"} alt="" className='rounded-full mr-2' />
               <span>{detailJobs?.tenNguoiTao} |</span>
               <div className='star text-warning ml-2'>
                 <i class="fa-solid fa-star"></i>
@@ -54,7 +54,7 @@ export default function DetailJob() {
                 <span>({detailJobs?.congViec?.danhGia})</span>
               </div>
             </div>
-            <img src="https://picsum.photos/1000/600" alt="" className='mt-3' />
+            <img src={detailJobs?.congViec?.hinhAnh} alt="" className='mt-3 w-full' />
             <div className='about'>
               <h4 className="my-4">About This Gig</h4>
 

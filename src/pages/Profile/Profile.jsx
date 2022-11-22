@@ -28,10 +28,11 @@ export default function Profile() {
 
     dispatch(LayDanhSachCongViecDaThueActions())
   }, [])
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   const [showModal, setshowModal] = useState(false);
 
   return (
@@ -48,7 +49,7 @@ export default function Profile() {
 
                 >
                   {/* <div className="bg-svg">{cameraImg}</div> */}
-                  <div style={{ width: 80, height: 80, display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="text-2xl rounded-full bg-gray-400 text-center">
+                  <div style={{ width: 80, height: 80, display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="text-2xl rounded-full bg-gray-400 text-center mx-auto">
                     <span>{userId.name.substr(0, 1)}</span>
                   </div>
                   <input
@@ -156,7 +157,11 @@ export default function Profile() {
                     <h5>Skill</h5>
                     <b className='text-blue-500' onClick={() => setshowModal(true)} role="button">Edit</b>
                   </div>
-                  <p>HTML</p>
+                  <div>
+                    {userId?.skill?.map((item, index) => {
+                      return <span key={index} className='mr-2'>{item}</span>
+                    })}
+                  </div>
                 </div>
                 <hr />
                 <div className='education p-2'>
@@ -172,7 +177,11 @@ export default function Profile() {
                     <h5>Certification</h5>
                     <b className='text-blue-500' onClick={() => setshowModal(true)} role="button">Edit</b>
                   </div>
-                  <p>CyberSoft Academy</p>
+                  <div>
+                    {userId?.certification?.map((item, index) => {
+                      return <span key={index} className='mr-2'>{item}</span>
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
