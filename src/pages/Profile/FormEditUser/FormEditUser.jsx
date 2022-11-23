@@ -146,22 +146,7 @@ export default function FormEditUser({ setshowModal }) {
                     Update
                 </button>
             </Form.Item>
-            {/* <div className="text-center">
-                <button
-                    onClick={() => setshowModal(false)}
 
-                    className="btn btn-outline-danger mr-3"
-                >
-                    Close
-                </button>
-
-                <button type='submit' className="btn btn-outline-success" onClick={() => {
-                    // console.log()
-                }}>
-
-                    Update
-                </button>
-            </div> */}
         </Form>
 
     )

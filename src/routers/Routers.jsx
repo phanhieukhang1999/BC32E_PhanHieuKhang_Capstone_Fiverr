@@ -60,7 +60,7 @@ export default function Routers() {
                 },
                 {
                     path: 'profile/:idProfile',
-                    element: <Profile/>
+                    element: <Profile />
                 }
 
 
@@ -75,7 +75,27 @@ export default function Routers() {
                     element: <AdminTemplate />,
 
                 },
-                
+                {
+                    path: '/admin/QuanLyNguoiDung',
+                    element: <AdminTemplate />,
+
+                },
+                {
+                    path: '/admin/QuanLyCongViec',
+                    element: <AdminTemplate />,
+
+                },
+                {
+                    path: '/admin/QuanLyLoaiCongViec',
+                    element: <AdminTemplate />,
+
+                },
+                {
+                    path: '/admin/QuanLyDichVu',
+                    element: <AdminTemplate />,
+
+                },
+
             ]
         }
     ])

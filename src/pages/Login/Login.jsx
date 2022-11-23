@@ -48,7 +48,7 @@ export default function Login(props) {
                 <div className="mt-10">
                   <button className="bg-green-500 text-gray-100 text-xl p-2 w-full rounded-full tracking-wide
                           font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-green-600
-                          shadow-lg"  onClick={() => navigate(-1)}>
+                          shadow-lg" >
                     Đăng nhập
                   </button>
                 </div>

@@ -10,10 +10,10 @@ const alertSuccess = () => {
         title: "Bạn đã thuê thành công !",
         showConfirmButton: false,
         timer: 1500,
-    }).then (function() {
+    }).then(function () {
         window.location.href = "/";
-    }) 
-    
+    })
+
 
 };
 
@@ -26,7 +26,7 @@ const alertDeleteSuccess = () => {
         showConfirmButton: false,
         timer: 1500,
     })
-    
+
 
 };
 
@@ -38,11 +38,25 @@ const alertEditSuccess = () => {
         title: "Bạn đã cập nhật thành công !",
         showConfirmButton: false,
         timer: 1500,
-    }).then (function() {
+    }).then(function () {
         window.location.reload()
-    }) 
-    
+    })
+
 
 };
 
-export { alertSuccess, alertDeleteSuccess, alertEditSuccess };
+const alertSignUpSuccess = () => {
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Bạn đã đăng ký thành công !",
+        showConfirmButton: false,
+        timer: 1500,
+    }).then(function () {
+        window.location.href = "/login";
+    })
+
+
+};
+
+export { alertSuccess, alertDeleteSuccess, alertEditSuccess, alertSignUpSuccess };

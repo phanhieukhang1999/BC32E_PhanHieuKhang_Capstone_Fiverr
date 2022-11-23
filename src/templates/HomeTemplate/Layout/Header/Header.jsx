@@ -59,7 +59,7 @@ export default function Header(props) {
               <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Become a Seller</a>
             </li>
             {userLogin.token ? (
-              <DropdownButton id="dropdown-basic-button" title={`Hi ${userLogin.user.name}`} >
+              <DropdownButton id="dropdown-basic-button" title={`${userLogin.user.name}`} >
                 {/* <Dropdown.Item href="/admin">Admin</Dropdown.Item> */}
                 <Dropdown.Item href={`/profile/${userLogin.user.id}`}>Profile</Dropdown.Item>
                 <Dropdown.Item href="/" onClick={() => {
