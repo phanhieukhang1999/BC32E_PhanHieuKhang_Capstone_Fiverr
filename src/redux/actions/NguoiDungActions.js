@@ -1,6 +1,7 @@
 import { nguoiDungServices } from "../../services/nguoiDungServices";
-import { GET_USER_ACTION, GET_USER_ID_ACTION, PUT_USER_ID_ACTION } from "../types/NguoiDungType";
+import { GET_USER_ACTION, GET_USER_ID_ACTION, POST_USER_ACTION, PUT_USER_ID_ACTION } from "../types/NguoiDungType";
 import { alertEditSuccess, alertSuccess } from "../../components/SweetAlert/alertSuccess";
+import Swal from 'sweetalert2'
 
 export const getUserAction = () => {
     return async (dispatch) => {
@@ -8,7 +9,7 @@ export const getUserAction = () => {
         try {
             const result = await nguoiDungServices.getUserService()
             console.log("result: ", result.data.content);
-            alertSuccess()
+            // alertSuccess()
             if (result.status === 200) {
                 dispatch({
                     type: GET_USER_ACTION,
@@ -58,6 +59,37 @@ export const putUserIdAction = (values) => {
             //     })
             // }
             // dispatch(getUserIdAction())
+
+        } catch (error) {
+            console.log("error: ", error.response?.data);
+
+        }
+    }
+}
+
+// ADMIN
+export const postUserAction = (values) => {
+    return async (dispatch) => {
+        try {
+            const result = await nguoiDungServices.postUserService(values)
+            console.log("result: ", result.data.content);
+            // alertEditSuccess()
+            if (result.status === 200) {
+                dispatch({
+                    type: POST_USER_ACTION,
+                    userId: result.data?.content
+                })
+            }
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Bạn đã thêm thành công !",
+                showConfirmButton: false,
+                timer: 1500,
+            }).then(function () {
+                window.location.reload()
+            })
+         
 
         } catch (error) {
             console.log("error: ", error.response?.data);

@@ -1,0 +1,20 @@
+.ant-layout {
+  .ant-layout-sider {
+    background: #00502b;
+  }
+  .ant-menu.ant-menu-dark,
+  .ant-menu-dark .ant-menu-sub,
+  .ant-menu.ant-menu-dark .ant-menu-sub {
+    background: #00502b;
+  }
+  .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background: #1dbf73;
+  }
+  .ant-layout-header {
+    background: #00502b;
+
+  }
+  .ant-layout-sider-trigger {
+    background: #1dbf73;
+  }
+}

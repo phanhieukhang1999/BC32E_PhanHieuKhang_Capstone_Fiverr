@@ -1,4 +1,4 @@
-import { GET_USER_ACTION, GET_USER_ID_ACTION, PUT_USER_ID_ACTION } from "../types/NguoiDungType"
+import { GET_USER_ACTION, GET_USER_ID_ACTION, POST_USER_ACTION, PUT_USER_ID_ACTION } from "../types/NguoiDungType"
 
 
 const stateDefault = {
@@ -37,6 +37,12 @@ export const NguoiDungReducers = (state = stateDefault, action) => {
             state.userId = action.userId
             return { ...state }
         }
+        // ADMIN
+        case POST_USER_ACTION: {
+            state.userId = action.userId
+            return { ...state }
+        }
+
         default: return { ...state }
     }
 }

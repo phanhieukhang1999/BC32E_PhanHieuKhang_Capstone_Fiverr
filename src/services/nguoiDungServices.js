@@ -8,6 +8,7 @@ export const nguoiDungServices = {
         return api.get(`users`)
     },
 
+
     // Detail
     getUserIdService: (userId) => {
         return api.get(`users/${userId}`, userId)
@@ -16,7 +17,12 @@ export const nguoiDungServices = {
     // Update
     putUserIdService: (values) => {
         return api.put(`users/${values.id}`, values)
-    }
+    },
+
+    // ADMIN
+    postUserService: (userId) => {
+        return api.post(`users`, userId)
+    },
 
 
 
