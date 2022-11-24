@@ -9,7 +9,7 @@ import { Modal } from "react-bootstrap";
 import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { deleteUserAction, getUserAction } from '../../../redux/actions/NguoiDungActions';
+import { deleteUserAction, getUserAction, searchUserAction } from '../../../redux/actions/NguoiDungActions';
 import FormAddUser from './FormAddUser';
 import FormEdit from './FormEdit/FormEdit';
 const { Search } = Input;
@@ -19,9 +19,9 @@ export default function QuanLyNguoiDung() {
   const { user } = useSelector(state => state.NguoiDungReducers)
   console.log("user: ", user);
   const dispatch = useDispatch()
-  const { id } = useParams()
+  // const { id } = useParams()
   useEffect(() => {
-    dispatch(getUserAction(id));
+    dispatch(getUserAction(user));
 
   }, [])
   const [showModal, setshowModal] = useState(false);
@@ -127,7 +127,7 @@ export default function QuanLyNguoiDung() {
 
     console.log(value);
     // gọi api lấy danh sách user
-    dispatch(getUserAction(value));
+    dispatch(searchUserAction(value));
 
   };
   function onChange(pagination, filters, sorter, extra) {
@@ -142,7 +142,7 @@ export default function QuanLyNguoiDung() {
         placeholder="Nhập tên tài khoản cần tìm ..."
         enterButton={<SearchOutlined />}
         size="large"
-
+        onSearch={onSearch}
 
       />
 

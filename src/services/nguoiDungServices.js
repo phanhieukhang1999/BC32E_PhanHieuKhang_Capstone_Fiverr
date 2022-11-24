@@ -25,8 +25,12 @@ export const nguoiDungServices = {
     },
 
     deleteUserService: (user) => {
-        return api.delete(`users?id=${user.id}`)
+        return api.delete(`users?id=${user}`)
     },
+
+    searchUserSerVice: (valueSearch) => {
+        return api.get(`users/search/${valueSearch}`)
+    }
 
 
 

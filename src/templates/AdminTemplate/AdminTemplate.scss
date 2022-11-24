@@ -13,18 +13,17 @@
   }
   .ant-layout-header {
     background: #00502b;
+    button {
+      border: none;
+      color: #fff;
+      background-color: transparent;
+      &:hover {
+        background-color: transparent;
+      }
+    }
   }
   .ant-layout-sider-trigger {
     background: #1dbf73;
-  }
-  button {
-    border: none;
-    color: #fff;
-    background-color: transparent;
-    &:hover {
-      background-color: transparent;
-    }
-
   }
   .dropdown-menu.show {
     a {

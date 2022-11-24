@@ -68,6 +68,32 @@ export const putUserIdAction = (values) => {
 }
 
 // ADMIN
+export const searchUserAction = (valueSearch) => {
+    return async (dispatch) => {
+        try {
+            const result = await nguoiDungServices.searchUserSerVice(valueSearch)
+            console.log("result: ", result.data.content);
+            
+            dispatch(getUserAction(valueSearch))
+           
+            // Swal.fire({
+            //     position: "center",
+            //     icon: "success",
+            //     title: "Bạn đã xóa thành công !",
+            //     showConfirmButton: false,
+            //     timer: 1500,
+            // }).then(function () {
+            //     window.location.reload()
+            // })
+         
+
+        } catch (error) {
+            console.log("error: ", error.response?.data);
+
+        }
+    }
+}
+
 export const postUserAction = (values) => {
     return async (dispatch) => {
         try {
@@ -123,3 +149,4 @@ export const deleteUserAction = (id) => {
         }
     }
 }
+
