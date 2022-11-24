@@ -97,3 +97,29 @@ export const postUserAction = (values) => {
         }
     }
 }
+
+export const deleteUserAction = (id) => {
+    return async (dispatch) => {
+        try {
+            const result = await nguoiDungServices.deleteUserService(id)
+            console.log("result: ", result.data.content);
+            
+            dispatch(getUserAction(id))
+           
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Bạn đã xóa thành công !",
+                showConfirmButton: false,
+                timer: 1500,
+            }).then(function () {
+                window.location.reload()
+            })
+         
+
+        } catch (error) {
+            console.log("error: ", error.response?.data);
+
+        }
+    }
+}

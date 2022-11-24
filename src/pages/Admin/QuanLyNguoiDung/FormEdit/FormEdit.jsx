@@ -7,26 +7,25 @@ import {
 } from "antd";
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserIdAction, postUserAction, putUserIdAction } from '../../../redux/actions/NguoiDungActions';
-import { useParams } from 'react-router-dom';
-import { nguoiDungServices } from '../../../services/nguoiDungServices';
-import { DANG_NHAP_ACTION } from '../../../redux/types/AuthType';
-import { dangNhapAction } from '../../../redux/actions/AuthActions';
 import { useFormik } from 'formik';
 import { Formik } from 'formik';
 import { Button } from 'react-bootstrap';
+import { getUserIdAction, putUserIdAction } from '../../../../redux/actions/NguoiDungActions';
+import { useParams } from 'react-router-dom';
 const { Option } = Select;
 const formItemLayout = {
     labelCol: { xs: { span: 10 }, sm: { span: 9 } },
     wrapperCol: { xs: { span: 10 }, sm: { span: 8 } },
 };
 
-export default function FormAddUser({ setshowModal }) {
-    // const { userLogin } = useSelector(state => state.AuthReducers)
-    const { userId } = useSelector(state => state.NguoiDungReducers)
-    console.log("userId: ", userId);
+export default function FormEdit({ setshowModalEdit }) {
+    let  userAdmin  = JSON.parse(localStorage.getItem("userAdmin"));
+//   let userEditing = JSON.parse(localStorage.getItem("editUserAdmin"));
+
+    console.log("userAdmin: ", userAdmin);
 
     const dispatch = useDispatch()
+    const { profile, idProfile } = useParams()
 
     const [form] = Form.useForm()
     const [componentSize, setComponentSize] = useState('default');
@@ -34,28 +33,31 @@ export default function FormAddUser({ setshowModal }) {
         setComponentSize(size);
     }
 
-
+    useEffect(() => {
+        // lấy thông tin user
+        // dispatch(getUserIdAction(idProfile))
+    }, [])
 
 
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            id: 0,
-            name: '',
-            email: '',
-            phone: '',
-            password: '',
-            birthday: '',
-            gender: true,
-            role: '',
-            skill: '',
-            certification: '',
+            id: userAdmin?.id,
+            name: userAdmin?.name,
+            email: userAdmin?.email,
+            phone: userAdmin?.phone,
+            password: userAdmin?.password,
+            birthday: moment(userAdmin?.birthday).format("DD/MM/YYYY"),
+            gender: userAdmin?.gender,
+            role: userAdmin?.role,
+            skill: userAdmin?.skill,
+            certification: userAdmin?.certification,
 
         },
         onSubmit: (values) => {
             console.log("values: ", values);
 
-            dispatch(postUserAction(values))
+            dispatch(putUserIdAction(values))
         }
 
     })
@@ -72,7 +74,7 @@ export default function FormAddUser({ setshowModal }) {
             onFinish={formik.handleSubmit}
 
             {...formItemLayout}
-            form={form}
+            // form={form}
             // name='formEditUser'
 
             // scrollToFirstError
@@ -116,7 +118,7 @@ export default function FormAddUser({ setshowModal }) {
 
             <Form.Item className="text-right">
                 <button
-                    onClick={() => setshowModal(false)}
+                    onClick={() => setshowModalEdit(false)}
 
                     className="btn btn-primary  mr-3"
                 >
@@ -127,7 +129,7 @@ export default function FormAddUser({ setshowModal }) {
                     // dispatch(postUserAction())
 
                 }}>
-                    Thêm
+                    Cập nhật
                 </button>
             </Form.Item>
 
@@ -135,3 +137,4 @@ export default function FormAddUser({ setshowModal }) {
 
     )
 }
+

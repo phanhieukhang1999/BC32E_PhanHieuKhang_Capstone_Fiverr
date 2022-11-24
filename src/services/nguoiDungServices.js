@@ -24,6 +24,10 @@ export const nguoiDungServices = {
         return api.post(`users`, userId)
     },
 
+    deleteUserService: (user) => {
+        return api.delete(`users?id=${user.id}`)
+    },
+
 
 
 }

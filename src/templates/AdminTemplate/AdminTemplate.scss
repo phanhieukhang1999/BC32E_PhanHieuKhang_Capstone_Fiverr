@@ -7,14 +7,28 @@
   .ant-menu.ant-menu-dark .ant-menu-sub {
     background: #00502b;
   }
-  .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal)
+    .ant-menu-item-selected {
     background: #1dbf73;
   }
   .ant-layout-header {
     background: #00502b;
-
   }
   .ant-layout-sider-trigger {
     background: #1dbf73;
+  }
+  button {
+    border: none;
+    color: #fff;
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+    }
+
+  }
+  .dropdown-menu.show {
+    a {
+      line-height: 30px;
+    }
   }
 }

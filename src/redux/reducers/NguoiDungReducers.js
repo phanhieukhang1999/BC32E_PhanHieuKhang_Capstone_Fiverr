@@ -17,7 +17,22 @@ const stateDefault = {
         "certification": [],
         "bookingJob": []
     },
-    
+
+    userAdmin: {
+        "id": 0,
+        "name": "",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "birthday": "",
+        "avatar": "",
+        "gender": true,
+        "role": "",
+        "skill": [],
+        "certification": [],
+        "bookingJob": []
+    }
+
 }
 
 export const NguoiDungReducers = (state = stateDefault, action) => {
