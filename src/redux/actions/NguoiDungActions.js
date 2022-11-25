@@ -1,5 +1,5 @@
 import { nguoiDungServices } from "../../services/nguoiDungServices";
-import { GET_USER_ACTION, GET_USER_ID_ACTION, POST_USER_ACTION, PUT_USER_ID_ACTION } from "../types/NguoiDungType";
+import { GET_USER_ACTION, GET_USER_ID_ACTION, POST_USER_ACTION, PUT_USER_ID_ACTION, SEARCH_USER } from "../types/NguoiDungType";
 import { alertEditSuccess, alertSuccess } from "../../components/SweetAlert/alertSuccess";
 import Swal from 'sweetalert2'
 
@@ -68,31 +68,28 @@ export const putUserIdAction = (values) => {
 }
 
 // ADMIN
-export const searchUserAction = (valueSearch) => {
-    return async (dispatch) => {
-        try {
-            const result = await nguoiDungServices.searchUserSerVice(valueSearch)
-            console.log("result: ", result.data.content);
-            
-            dispatch(getUserAction(valueSearch))
-           
-            // Swal.fire({
-            //     position: "center",
-            //     icon: "success",
-            //     title: "Bạn đã xóa thành công !",
-            //     showConfirmButton: false,
-            //     timer: 1500,
-            // }).then(function () {
-            //     window.location.reload()
-            // })
-         
+// export const searchUserAction = (valueSearch) => {
+//     return async (dispatch) => {
+//         try {
+//             const result = await nguoiDungServices.searchUserSerVice(valueSearch)
+//             console.log("result: ", result.data.content)
 
-        } catch (error) {
-            console.log("error: ", error.response?.data);
+//             if (result.status === 200) {
+//                 dispatch({
+//                     type: SEARCH_USER,
+//                     searchUser: result.data.content,
 
-        }
-    }
-}
+//                 })
+
+//                 // dispatch(getUserAction([]))
+//             }
+
+//         } catch (error) {
+//             console.log("error: ", error.response?.data);
+
+//         }
+//     }
+// }
 
 export const postUserAction = (values) => {
     return async (dispatch) => {
@@ -115,7 +112,7 @@ export const postUserAction = (values) => {
             }).then(function () {
                 window.location.reload()
             })
-         
+
 
         } catch (error) {
             console.log("error: ", error.response?.data);
@@ -129,9 +126,9 @@ export const deleteUserAction = (id) => {
         try {
             const result = await nguoiDungServices.deleteUserService(id)
             console.log("result: ", result.data.content);
-            
+
             dispatch(getUserAction(id))
-           
+
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -141,7 +138,7 @@ export const deleteUserAction = (id) => {
             }).then(function () {
                 window.location.reload()
             })
-         
+
 
         } catch (error) {
             console.log("error: ", error.response?.data);

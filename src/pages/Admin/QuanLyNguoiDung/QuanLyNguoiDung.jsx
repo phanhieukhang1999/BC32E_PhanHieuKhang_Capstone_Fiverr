@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { deleteUserAction, getUserAction, searchUserAction } from '../../../redux/actions/NguoiDungActions';
 import FormAddUser from './FormAddUser';
 import FormEdit from './FormEdit/FormEdit';
+import { nguoiDungServices } from '../../../services/nguoiDungServices';
 const { Search } = Input;
 
 
@@ -21,32 +22,52 @@ export default function QuanLyNguoiDung() {
   const dispatch = useDispatch()
   // const { id } = useParams()
   useEffect(() => {
-    dispatch(getUserAction(user));
+    dispatch(getUserAction());
 
   }, [])
+  const { Search } = Input;
+
   const [showModal, setshowModal] = useState(false);
   const [showModalEdit, setshowModalEdit] = useState(false);
+  // const [valueSearch, setValueSearch] = useState([]);
+
+
+  const [valueSearch, setValueSearch] = useState('');
+
+
+
+
+  const onSearch = value => {
+
+    console.log(value);
+    // gọi api lấy danh sách user
+    // dispatch(searchUserAction(value));
+    // nguoiDungServices.searchUserSerVice(value)
+    //   .try((res) => {
+    //     dispatch(getUserAction(user))
+    //     setValueSearch(res.data.content)
+    //   })
+    //   .catch((error) => {
+    //     console.log("error: ", error);
+
+    //   })
+    
+
+  };
+
+  // danh sách user
+  const data = user
+
+  // search user
+  // const data = valueSearch
 
   const columns = [
-    // {
-    //   title: 'STT',
-    //   dataIndex: 'stt',
-    //   key: 'stt',
-    //   render: (text, user, stt) => stt + 1
-    // },
+
     {
       title: 'Tài khoản',
       dataIndex: 'name',
       key: 'name',
-      // sorter: (a, b) => {
-      //   let tenTK1 = a.name.toLowerCase().trim();
-      //   let tenTK2 = b.name.toLowerCase().trim();
-      //   if (tenTK1 > tenTK2) {
-      //     return 1;
-      //   }
-      //   return -1;
-      // },
-      // sortDirections: ['descend', 'ascend'],
+
       render: (text, user) => {
         return <Fragment key={text}>
           {user.name}
@@ -121,15 +142,9 @@ export default function QuanLyNguoiDung() {
 
   ];
 
-  const data = user
 
-  const onSearch = value => {
 
-    console.log(value);
-    // gọi api lấy danh sách user
-    dispatch(searchUserAction(value));
 
-  };
   function onChange(pagination, filters, sorter, extra) {
     console.log('params', pagination, filters, sorter, extra);
   }
@@ -141,12 +156,17 @@ export default function QuanLyNguoiDung() {
         className="mb-5"
         placeholder="Nhập tên tài khoản cần tìm ..."
         enterButton={<SearchOutlined />}
+        // enterButton="Search"
+        allowClear
+        value={valueSearch}
+        onChange={(e) => setValueSearch(e.target.value)}
+
         size="large"
+
         onSearch={onSearch}
-
       />
-
-      <Table columns={columns} dataSource={data} rowKey={"name"} />
+      
+      <Table columns={columns} dataSource={data.filter(user => user.name.includes(valueSearch.toLowerCase().trim()) || user.email.includes(valueSearch.toLowerCase().trim())).sort((a,b) => a.id - b.id)} rowKey={"name"} />
 
       <Modal show={showModal} onHide={() => setshowModal(false)}>
         <Modal.Header style={{ justifyContent: 'center' }}>
