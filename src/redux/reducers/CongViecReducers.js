@@ -1,7 +1,9 @@
-import { LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_CHI_TIET, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC } from "../types/CongViecTypes"
+import { ADD_CONG_VIEC, LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_CHI_TIET, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC } from "../types/CongViecTypes"
 
 
 const stateDefault = {
+
+
     menuJob: [
         // {
         //     "id": 1,
@@ -266,7 +268,11 @@ const stateDefault = {
 
     menuDetail: [],
 
-    detailJobs: []
+    detailJobs: [],
+
+    listJob: [],
+
+    addJob: {}
 
 
 
@@ -274,6 +280,13 @@ const stateDefault = {
 
 export const CongViecReducers = (state = stateDefault, action) => {
     switch (action.type) {
+        case LAY_DS_CONG_VIEC: {
+            state.listJob = action.listJob
+            return { ...state }
+
+        }
+
+
         case SET_MENU_CONG_VIEC: {
             state.menuJob = action.menuJob
             // state.menuArr = state.menuJob
@@ -299,6 +312,12 @@ export const CongViecReducers = (state = stateDefault, action) => {
 
         case LAY_CONG_VIEC_CHI_TIET: {
             state.detailJobs = action.detailJobs
+            return { ...state }
+        }
+
+        // Admin
+        case ADD_CONG_VIEC: {
+            state.addJob = action.addJob
             return { ...state }
         }
         default: return { ...state }

@@ -1,5 +1,9 @@
 import React from 'react'
 import { useRoutes } from 'react-router-dom'
+import QuanLyCongViec from '../pages/Admin/QuanLyCongViec/QuanLyCongViec'
+import QuanLyDichVu from '../pages/Admin/QuanLyDichVu/QuanLyDichVu'
+import QuanLyLoaiCongViec from '../pages/Admin/QuanLyLoaiCongViec/QuanLyLoaiCongViec'
+import QuanLyNguoiDung from '../pages/Admin/QuanLyNguoiDung/QuanLyNguoiDung'
 import DetailJob from '../pages/DetailJob/DetailJob'
 import Home from '../pages/Home/Home'
 import ListJob from '../pages/ListJob/ListJob'
@@ -77,22 +81,22 @@ export default function Routers() {
                 },
                 {
                     path: '/admin/QuanLyNguoiDung',
-                    element: <AdminTemplate />,
+                    element: <QuanLyNguoiDung />,
 
                 },
                 {
                     path: '/admin/QuanLyCongViec',
-                    element: <AdminTemplate />,
+                    element: <QuanLyCongViec />,
 
                 },
                 {
                     path: '/admin/QuanLyLoaiCongViec',
-                    element: <AdminTemplate />,
+                    element: <QuanLyLoaiCongViec />,
 
                 },
                 {
                     path: '/admin/QuanLyDichVu',
-                    element: <AdminTemplate />,
+                    element: <QuanLyDichVu />,
 
                 },
 

@@ -1,6 +1,28 @@
 import { congViecServices } from "../../services/congViecServices";
-import { LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_CHI_TIET, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC } from "../types/CongViecTypes";
+import { ADD_CONG_VIEC, LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_CHI_TIET, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC, THEM_CONG_VIEC } from "../types/CongViecTypes";
 
+
+export const layDSCongViecAction = () => {
+
+    return async (dispatch) => {
+        try {
+            const result = await congViecServices.layDanhSachCongViec()
+            console.log("result: ", result.data.content);
+            if (result.status === 200) {
+                dispatch({
+                    type: LAY_DS_CONG_VIEC,
+                    listJob: result.data.content,
+
+                })
+
+            }
+        } catch (error) {
+            console.log("error: ", error.response?.data);
+
+        }
+    }
+
+}
 
 export const layMenuCongViecAction = () => {
 
@@ -112,4 +134,27 @@ export const layDanhSachCongViecTheoTenAction = (valueSearch) => {
         }
     }
 
+}
+
+// Admin
+
+export const addJobAction = (values) => {
+
+    return async (dispatch) => {
+        try {
+            const result = await congViecServices.addJobService(values)
+            console.log("result: ", result.data.content);
+            if (result.status === 200) {
+                dispatch({
+                    type: ADD_CONG_VIEC,
+                    addJob: result.data.content,
+
+                })
+
+            }
+        } catch (error) {
+            console.log("error: ", error.response?.data);
+
+        }
+    }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Form, Input, Select, DatePicker } from "antd";
 
 import { Link, useNavigate } from 'react-router-dom'
@@ -59,6 +59,9 @@ export default function Register() {
     formik.setFieldValue('gender', gender);
 
   }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="selection:bg-green-500 selection:text-white py-36">
@@ -82,50 +85,125 @@ export default function Register() {
 
                   // scrollToFirstError
                   size="large"
+                  autoComplete='off'
                 >
                   <Form.Item
-
-                    label="Name"
-
+                    name="name"
+                    label="Tên"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Tên không được bỏ trống !",
+                      },
+                      { whitespace: true }, // khoảng trắng
+                      { min: 3, message: 'Tên từ 3 ký tự trở lên !' },
+                    ]}
+                    hasFeedback
                   >
                     <Input name="name" value={formik.values.name} onChange={formik.handleChange} placeholder='Nhập tên' />
                   </Form.Item>
                   <Form.Item
-
+                    name="email"
                     label="Email"
-
+                    rules={[
+                      {
+                        required: true,
+                        message: "Email không được bỏ trống !",
+                      },
+                      { type: 'email', message: 'Email không đúng định dạng !' },
+                    ]}
+                    hasFeedback
                   >
                     <Input name="email" value={formik.values.email} onChange={formik.handleChange} placeholder='Nhập email' />
                   </Form.Item>
                   <Form.Item
-
+                    name="password"
                     label="Mật khẩu"
-
+                    rules={[
+                      {
+                        required: true,
+                        message: "Mật khẩu không được bỏ trống !",
+                      },
+                    ]}
+                    hasFeedback
                   >
-                    <Input name="password" value={formik.values.password} onChange={formik.handleChange} placeholder='Nhập mật khẩu' />
+                    <Input.Password name="password" type='password' value={formik.values.password} onChange={formik.handleChange} placeholder='Nhập mật khẩu' />
                   </Form.Item>
                   <Form.Item
-
+                    name="confirm_password"
+                    label="Nhập lại mật khẩu"
+                    dependencies={['password']}
+                    rules={[
+                      {
+                        required: true,
+                        message: "Mật khẩu không được bỏ trống !",
+                      },
+                      ({ getFieldValue }) => ({
+                        validator(_, value) {
+                          if (!value || getFieldValue('password') === value) {
+                            return Promise.resolve()
+                          }
+                          return Promise.reject('Mật khẩu không khớp !')
+                        }
+                      })
+                    ]}
+                    hasFeedback
+                  >
+                    <Input.Password name="confirm_password" type='password' value={formik.values.password} onChange={formik.handleChange} placeholder='Nhập mật khẩu' />
+                  </Form.Item>
+                  <Form.Item
+                    name="phone"
                     label="Số điện thoại"
-
+                    rules={[
+                      {
+                        required: true,
+                        message: "Số điện thoại không được bỏ trống !",
+                      },
+                      {
+                        message: "Số điện thoai không đúng đinh dạng !",
+                        pattern: /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/,
+                      },
+                    ]}
+                    hasFeedback
                   >
                     <Input style={{ width: "100%" }} name="phone" value={formik.values.phone} onChange={formik.handleChange} placeholder='Nhập số điện thoại' />
                   </Form.Item>
 
                   <Form.Item
                     label="Ngày sinh"
-
+                    name='birthday'
+                    rules={[
+                      {
+                        required: true,
+                        message: "Chọn đúng ngày sinh của bạn !",
+                      },
+                    ]}
+                    hasFeedback
 
                   >
                     <DatePicker name='birthday' format={"DD/MM/YYYY"} placeholder='Nhập ngày sinh' />
                   </Form.Item>
-                  <Form.Item label="Giới tính">
-                    <Select name="gender" width='200px' placeholder='312312' value={formik.values.gender} onChange={handleChangeGender}>
+                  <Form.Item label="Giới tính" name="gender" rules={[
+                    {
+                      required: true,
+                      message: "Chọn giới tính !",
+                    },
+                  ]}
+                    hasFeedback
+                  >
+                    <Select name="gender" width='200px' placeholder='Chọn giới tính' value={formik.values.gender} onChange={handleChangeGender}>
                       <Option value={true}>Male</Option>
                       <Option value={false}>Female</Option>
                     </Select>
                   </Form.Item>
-                  <Form.Item label="Skill" >
+                  <Form.Item label="Skill" name="skill" rules={[
+                    {
+                      required: true,
+                      message: "Chọn skill của bạn !",
+                    },
+                  ]}
+                    hasFeedback
+                  >
                     <Select mode="multiple" name="skill" placeholder="Chọn skill của bạn" value={formik.values.skill} onChange={handleChangeSkill}>
                       <Option value="Front-end Developer">Front-end Developer</Option>
                       <Option value="Back-end Developer ">Back-end Developer</Option>
@@ -134,7 +212,7 @@ export default function Register() {
                       <Option value="Node Js">Node Js</Option>
                     </Select>
                   </Form.Item>
-                  <Form.Item label="Certification">
+                  <Form.Item label="Certification" name="certification" requiredMark='optional'>
                     <Select showSearch name="certification" mode="multiple" placeholder="Chọn certification của bạn" value={formik.values.certification} onChange={handleChangeCertification}>
                       <Option value="CyberSoft Academy">CyberSoft Academy</Option>
                       <Option value="AWS">AWS</Option>

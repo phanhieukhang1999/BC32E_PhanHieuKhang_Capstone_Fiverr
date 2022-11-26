@@ -15,6 +15,7 @@ import { TOKEN, USER_LOGIN } from '../../util/settings/config';
 import _ from 'lodash';
 import QuanLyNguoiDung from '../../pages/Admin/QuanLyNguoiDung/QuanLyNguoiDung';
 import './AdminTemplate.scss'
+import QuanLyCongViec from '../../pages/Admin/QuanLyCongViec/QuanLyCongViec';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -115,8 +116,9 @@ export default function AdminTemplate() {
               margin: '0 16px',
             }}
           >
-            {/* <Outlet /> */}
-            <QuanLyNguoiDung />
+            <Outlet />
+            {/* <QuanLyNguoiDung /> */}
+            {/* <QuanLyCongViec /> */}
 
           </Content>
           <Footer
