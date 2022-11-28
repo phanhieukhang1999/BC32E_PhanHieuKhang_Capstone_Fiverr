@@ -9,6 +9,9 @@
 }
 html,
 body {
+  overflow-x: hidden;
+
+  
   @font-face {
     font-display: swap;
     font-family: "macan";

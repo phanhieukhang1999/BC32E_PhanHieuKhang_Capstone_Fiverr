@@ -76,7 +76,7 @@ export default function HomeContent() {
 
                         </ul>
                     </div>
-                    <div className="rigth col-span-6">
+                    <div className="right col-span-6">
                         <img src="./img/selling-proposition-still-1400-x1.png" alt="..." onClick={showModal} />
                         <i class="fa-solid fa-play" onClick={showModal}></i>
                         <Modal
@@ -122,7 +122,7 @@ export default function HomeContent() {
                                             />
                                         </Modal>
                                     </div>
-                                    <div className="right col-span-7 px-14 ">
+                                    <div className="right col-span-7 px-14 mt-3">
                                         <span className="text-gray-400 font-medium text-lg">
                                             Kay Kim, Co-founder |{" "}
                                             <span className="text-black font-bold">rooted</span>
@@ -156,13 +156,11 @@ export default function HomeContent() {
                                     </div>
                                     <div className="right col-span-7 px-14 ">
                                         <span className="text-gray-400 font-medium text-lg">
-                                            Caitlin Tormey, Chief Commercial Officer |{" "}
-                                            <span className="text-black font-bold">rooted</span>
+                                            Tim and Dan Joo, Co-Founders |{" "}
+                                            <span className="text-black font-bold">HAERFERT</span>
                                         </span>
                                         <p className="mt-3 text-3xl text-green-900 font-semibold italic">
-                                            "We've used Fiverr for Shopify web development, graphic
-                                            design, and backend web development. Working with Fiverr
-                                            makes my job a little easier every day."
+                                            "When you want to create a business bigger than yourself, you need a lot of help. That's what Fiverr does."
                                         </p>
                                     </div>
                                 </div>
@@ -187,7 +185,7 @@ export default function HomeContent() {
                                     <div className="right col-span-7 px-14 ">
                                         <span className="text-gray-400 font-medium text-lg">
                                             Brighid Gannon (DNP, PMHNP-BC), Co-Founder |{" "}
-                                            <span className="text-black font-bold">rooted</span>
+                                            <span className="text-black font-bold">Lavender</span>
                                         </span>
                                         <p className="mt-3 text-3xl text-green-900 font-semibold italic">
                                             "We used Fiverr for SEO, our logo, website, copy, animated
@@ -216,12 +214,11 @@ export default function HomeContent() {
                                     </div>
                                     <div className="right col-span-7 px-14 ">
                                         <span className="text-gray-400 font-medium text-lg">
-                                            Tim and Dan Joo, Co-Founders |{" "}
-                                            <span className="text-black font-bold">rooted</span>
+                                            Caitlin Tormey, Chief Commercial Officer|{" "}
+                                            <span className="text-black font-bold">NAADAM</span>
                                         </span>
                                         <p className="mt-3 text-3xl text-green-900 font-semibold italic">
-                                            "When you want to create a business bigger than yourself,
-                                            you need a lot of help. That's what Fiverr does."
+                                            "We've used Fiverr for Shopify web development, graphic design, and backend web development. Working with Fiverr makes my job a little easier every day."
                                         </p>
                                     </div>
                                 </div>
