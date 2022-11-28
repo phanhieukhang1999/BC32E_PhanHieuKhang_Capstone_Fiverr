@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     DatePicker,
     Form,
@@ -11,8 +11,9 @@ import {
 import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { addJobAction } from '../../../../redux/actions/CongViecActions';
+import { addJobAction, editJobAction, layDSCongViecAction } from '../../../../redux/actions/CongViecActions';
 import { congViecServices } from '../../../../services/congViecServices';
+import { useParams } from 'react-router-dom';
 
 const formItemLayout = {
     labelCol: { xs: { span: 10 }, sm: { span: 9 } },
@@ -30,33 +31,40 @@ const { Option } = Select;
 
 
 
-export default function FormAddJob({ setshowModal }) {
-    const { addJob } = useSelector(state => state.CongViecReducers)
-    console.log("addJob: ", addJob);
+export default function FormEditJob({ setshowModalEdit }) {
+    let userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
 
+    console.log("userAdmin: ", userAdmin);
+
+    const { userLogin } = useSelector(state => state.AuthReducers)
+
+
+    useEffect(() => {
+
+    }, [])
     const dispatch = useDispatch()
     const [form] = Form.useForm()
-    let idJobUploadImg = "";
-    let data = [];
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            id: 0,
-            tenCongViec: '',
-            danhGia: 0,
-            giaTien: 0,
-            nguoiTao: 0,
-            hinhAnh: '',
-            moTa: '',
-            maChiTietLoaiCongViec: 0,
-            moTaNgan: '',
-            saoCongViec: 0
+            id: userAdmin?.id,
+            tenCongViec: userAdmin?.tenCongViec,
+            danhGia: userAdmin?.danhGia,
+            giaTien: userAdmin?.giaTien,
+            nguoiTao: userAdmin?.nguoiTao,
+            hinhAnh: userAdmin?.hinhAnh,
+            moTa: userAdmin?.moTa,
+            maChiTietLoaiCongViec: userAdmin?.maChiTietLoaiCongViec,
+            moTaNgan: userAdmin?.moTaNgan,
+            saoCongViec: userAdmin?.saoCongViec
 
         },
         onSubmit: (values) => {
             console.log("values: ", values);
+            
+            
+            dispatch(editJobAction(values.id))
 
-            dispatch(addJobAction(values))
         }
 
     })
@@ -64,22 +72,22 @@ export default function FormAddJob({ setshowModal }) {
         formik.setFieldValue('saoCongViec', saoCongViec);
 
     }
-    const handleChangeImg = (hinhAnh) => {
-        formik.setFieldValue('hinhAnh', hinhAnh);
+    // const handleChangeImg = (hinhAnh) => {
+    //     formik.setFieldValue('hinhAnh', hinhAnh);
 
-    }
+    // }
 
 
     return (
 
-        <Form {...formItemLayout} onFinish={formik.handleSubmit} form={form} >
+        <Form {...formItemLayout} onFinish={formik.handleSubmit}  >
             <Form.Item label='Tên công việc'>
                 <Input name="tenCongViec" value={formik.values.tenCongViec} onChange={formik.handleChange} />
             </Form.Item>
             {/* <Form.Item
                 name="hinhAnh"
                 label="Hình ảnh"
-                valuePropName="fileList"
+                // valuePropName="fileList"
                 getValueFromEvent={normFile}
             >
                 <Upload name="hinhAnh" listType="picture" value={formik.values.hinhAnh} onChange={handleChangeImg}>
@@ -103,7 +111,7 @@ export default function FormAddJob({ setshowModal }) {
             </Form.Item>
             <Form.Item className="text-right">
                 <button
-                    onClick={() => setshowModal(false)}
+                    onClick={() => setshowModalEdit(false)}
 
                     className="btn btn-primary  mr-3"
                 >
@@ -114,7 +122,7 @@ export default function FormAddJob({ setshowModal }) {
                     // dispatch(postUserAction())
 
                 }}>
-                    Thêm
+                    Cập nhật
                 </button>
             </Form.Item>
         </Form>

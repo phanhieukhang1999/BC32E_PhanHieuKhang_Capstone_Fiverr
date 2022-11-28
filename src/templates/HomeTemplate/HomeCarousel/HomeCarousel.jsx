@@ -15,7 +15,7 @@ import SearchCarousel from './SearchCarousel/SearchCarousel';
 export default function HomeCarousel() {
     return (
         <div className='Carousel'>
-            <Carousel autoplay>
+            <Carousel className='carousel-slider' autoplay>
                 <div className="carousel-img">
                     <div className='carousel-people'>
                         <img src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049983/bg-hero-1-1792-x1.png" alt="..." />
@@ -62,9 +62,9 @@ export default function HomeCarousel() {
                         </form> */}
                         <SearchCarousel />
                     </div>
-                    <div className='popular flex'>
+                    <div className='popular flex flex-wrap'>
                         Popular:
-                        <ul className='flex'>
+                        <ul className='flex justify-between flex-wrap'>
                             <li>
                                 <a href="">Website Design</a>
                             </li>

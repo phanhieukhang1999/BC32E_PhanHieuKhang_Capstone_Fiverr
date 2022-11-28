@@ -272,7 +272,11 @@ const stateDefault = {
 
     listJob: [],
 
-    addJob: {}
+    addJob: {},
+
+    editJob: {
+        
+    }
 
 
 

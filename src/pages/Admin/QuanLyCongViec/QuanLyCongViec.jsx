@@ -10,8 +10,10 @@ import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { nguoiDungServices } from '../../../services/nguoiDungServices';
-import { layDSCongViecAction } from '../../../redux/actions/CongViecActions';
+import { deleteJobAction, editJobAction, layDSCongViecAction } from '../../../redux/actions/CongViecActions';
 import FormAddJob from './FormAddJob/FormAddJob';
+import FormEditob from './FormEditJob/FormEditJob';
+import FormEditJob from './FormEditJob/FormEditJob';
 const { Search } = Input;
 
 
@@ -128,11 +130,12 @@ export default function QuanLyCongViec() {
                             onClick={() => {
                                 setshowModalEdit(true);
                                 localStorage.setItem("userAdmin", JSON.stringify(listJob));
+                                
                             }} />
                     </span>
                     <span style={{ cursor: 'pointer' }} key={2} className="text-2xl"
                         onClick={() => {
-                            //   dispatch(deleteUserAction(user.id))
+                              dispatch(deleteJobAction(listJob.id))
 
                         }}><DeleteOutlined style={{ color: 'red' }} />
                     </span>
@@ -188,11 +191,11 @@ export default function QuanLyCongViec() {
             <Modal show={showModalEdit} onHide={() => setshowModalEdit(false)}>
                 <Modal.Header style={{ justifyContent: 'center' }}>
                     <Modal.Title >
-                        <span className='text-center'>Cập nhât quản trị viên</span>
+                        <span className='text-center'>Cập nhật công việc</span>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {/* <FormEdit setshowModalEdit={setshowModalEdit} /> */}
+                    <FormEditJob setshowModalEdit={setshowModalEdit} />
                 </Modal.Body>
             </Modal>
         </div>

@@ -1,5 +1,7 @@
 import { congViecServices } from "../../services/congViecServices";
 import { ADD_CONG_VIEC, LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_CHI_TIET, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC, THEM_CONG_VIEC } from "../types/CongViecTypes";
+import Swal from 'sweetalert2'
+import { api } from "../../constants/api";
 
 
 export const layDSCongViecAction = () => {
@@ -152,6 +154,69 @@ export const addJobAction = (values) => {
                 })
 
             }
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Bạn đã thêm thành công !",
+                showConfirmButton: false,
+                timer: 1500,
+            }).then(function () {
+                window.location.reload()
+            })
+        } catch (error) {
+            console.log("error: ", error.response?.data);
+
+        }
+    }
+}
+
+export const editJobAction = (values) => {
+
+    return async (dispatch) => {
+        try {
+
+
+            const result = await congViecServices.editJobService(values)
+            console.log("result: ", result.data.content);
+
+        
+            // api.defaults.headers.common['token'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NzgiLCJlbWFpbCI6ImtoYW5nQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsIm5iZiI6MTY2OTUzOTk2MCwiZXhwIjoxNjcwMTQ0NzYwfQ.NNHQ2Ad2Cz2x-ggVyXorg8LmzO-eCvHWvk6SblL91m0"
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Bạn đã cập nhật thành công !",
+                showConfirmButton: false,
+                timer: 1500,
+            })
+            // .then(function () {
+            //     window.location.reload()
+            // })
+        } catch (error) {
+            console.log("error: ", error.response?.data);
+
+        }
+    }
+}
+
+export const deleteJobAction = (idJob) => {
+    return async (dispatch) => {
+        try {
+            const result = await congViecServices.deleteJobService(idJob)
+            console.log("result: ", result.data.content);
+
+            dispatch(layDSCongViecAction(idJob))
+
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Bạn đã xóa thành công !",
+                showConfirmButton: false,
+                timer: 1500,
+            }).then(function () {
+                window.location.reload()
+            })
+
+
         } catch (error) {
             console.log("error: ", error.response?.data);
 

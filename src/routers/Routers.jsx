@@ -76,7 +76,7 @@ export default function Routers() {
             children: [
                 {
                     path: 'admin',
-                    element: <AdminTemplate />,
+                    element: <QuanLyNguoiDung />,
 
                 },
                 {

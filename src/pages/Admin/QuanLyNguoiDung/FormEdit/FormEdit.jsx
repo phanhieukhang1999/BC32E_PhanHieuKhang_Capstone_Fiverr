@@ -19,8 +19,7 @@ const formItemLayout = {
 };
 
 export default function FormEdit({ setshowModalEdit }) {
-    let  userAdmin  = JSON.parse(localStorage.getItem("userAdmin"));
-//   let userEditing = JSON.parse(localStorage.getItem("editUserAdmin"));
+    let userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
 
     console.log("userAdmin: ", userAdmin);
 
@@ -118,8 +117,8 @@ export default function FormEdit({ setshowModalEdit }) {
 
             <Form.Item className="text-right">
                 <button
-                    
 
+                    onClick={() => setshowModalEdit(false)}
                     className="btn btn-primary  mr-3"
                 >
                     Hủy

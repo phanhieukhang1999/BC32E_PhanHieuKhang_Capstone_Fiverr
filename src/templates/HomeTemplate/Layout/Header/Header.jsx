@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { SearchOutlined } from '@ant-design/icons'
+import { SearchOutlined, MenuOutlined } from '@ant-design/icons'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import './Header.scss'
@@ -32,6 +32,7 @@ export default function Header(props) {
               <g fill="#1dbf73" className='fill'><path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"></path></g>
             </svg>
           </NavLink>
+
           <div className='fiverr-header-search flex items-center' >
             {/* <form className='search-form flex'>
               <input className='search-input' type="search" placeholder='What service are you looking for today?' />
@@ -41,8 +42,11 @@ export default function Header(props) {
             </form> */}
             <HeaderSearch />
           </div>
+          <input type="checkbox" id="check" />
+          <label htmlFor="check" className='checkbtn'>
+            <MenuOutlined />
+          </label>
           <ul className="fiverr-nav items-stretch mb-0  hidden space-x-3 lg:flex">
-
             <li className="flex">
               <NavLink rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500 active::text-blue-700">Fiverr Business</NavLink>
             </li>
@@ -65,7 +69,7 @@ export default function Header(props) {
                 <Dropdown.Item href="/" onClick={() => {
                   localStorage.removeItem(USER_LOGIN)
                   localStorage.removeItem(TOKEN)
-                  
+
                   window.location.reload()
                 }}>Logout</Dropdown.Item>
               </DropdownButton>
@@ -85,11 +89,11 @@ export default function Header(props) {
           </ul>
 
 
-          <button title="Open menu" type="button" className="p-4 lg:hidden">
+          {/* <button title="Open menu" type="button" className="p-4 lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-          </button>
+          </button> */}
         </div>
       </header>
       {/* <hr/> */}
