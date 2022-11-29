@@ -17,3 +17,16 @@ form {
 .ant-picker-dropdown {
   z-index: 1080 !important;
 }
+
+@media (max-width: 768px) {
+  .Register {
+    .register-width {
+      width: 100%;
+      .register-form {
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

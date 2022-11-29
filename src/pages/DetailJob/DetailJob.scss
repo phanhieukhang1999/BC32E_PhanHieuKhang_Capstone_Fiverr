@@ -2,6 +2,40 @@
   .container {
     .row {
       .left {
+        // .review {
+        //   .bottom {
+        //     .left {
+        //       .rating {
+        //         .ant-progress {
+        //           .ant-progress-bg {
+        //             background-color: #ffc107;
+        //           }
+        //           .ant-progress-text {
+        //             display: none;
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
+        // }
+      }
+      .right {
+        .tab {
+          border: 1px solid #ccc;
+          .ant-tabs {
+            .ant-tabs-nav {
+              .ant-tabs-nav-wrap {
+                .ant-tabs-nav-list {
+                  .ant-tabs-tab.ant-tabs-tab-active {
+                    border-bottom-color: 2px solid green !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .bottom {
         .review {
           .bottom {
             .left {
@@ -19,20 +53,151 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .DetailJob {
+    .row {
+      // flex-direction: column;
+      .left {
+        // width: 100%;
+        margin-top: 20px;
+      }
       .right {
-        .tab {
-          border: 1px solid #ccc;
-          .ant-tabs {
-            .ant-tabs-nav {
-              .ant-tabs-nav-wrap {
-                .ant-tabs-nav-list {
-                  .ant-tabs-tab.ant-tabs-tab-active {
-                    border-bottom-color: 2px solid green !important;
+        // width: 100%;
+      }
+      .bottom {
+        // width: 100%;
+        .review {
+          .bottom {
+            flex-direction: column;
+            .left {
+            }
+            .right {
+              margin-top: 15px;
+              ul {
+                li {
+                  span {
+                    margin-left: 15px !important;
                   }
                 }
               }
             }
-            
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .DetailJob {
+    .row {
+      flex-direction: column;
+      .left {
+        width: 100%;
+      }
+      .right {
+        width: 100%;
+      }
+      .bottom {
+        width: 100%;
+        .review {
+          .bottom {
+            flex-direction: column;
+            .left {
+            }
+            .right {
+              ul {
+                li {
+                  span {
+                    margin-left: 15px !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+  .DetailJob {
+    .row {
+      flex-direction: column;
+      .left {
+        width: 100%;
+      }
+      .right {
+        width: 100%;
+      }
+      .bottom {
+        width: 100%;
+        .review {
+          .top {
+            .left {
+              flex-direction: column;
+            }
+          }
+          .bottom {
+            flex-direction: column;
+            .left {
+            }
+            .right {
+              ul {
+                li {
+                  span {
+                    margin-left: 15px !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .DetailJob {
+    .row {
+      // flex-direction: column;
+      // .left {
+      //   width: 100%;
+      // }
+      // .right {
+      //   width: 100%;
+      // }
+      .bottom {
+        width: 100%;
+        .review {
+          .top {
+            .left {
+              flex-direction: column;
+            }
+          }
+          .bottom {
+            flex-direction: column;
+            .left {
+              .rating {
+                .rating-main {
+                  width: 345px !important;
+                }
+              }
+            }
+            .right {
+              ul {
+                li {
+                  span {
+                    margin-left: 15px !important;
+                  }
+                }
+              }
+            }
           }
         }
       }

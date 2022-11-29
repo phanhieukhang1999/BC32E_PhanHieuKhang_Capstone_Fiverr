@@ -14,40 +14,43 @@ export default function ListJob() {
     console.log("resultSearchJobByName: ", resultSearchJobByName);
 
     let [renderJob, setRenderJob] = useState([]);
-   
 
 
     useEffect(() => {
         dispatch(layDanhSachCongViecTheoTenAction(valueSearch))
     }, [valueSearch])
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     return (
         <div className='ListJob py-36'>
             <div className="container">
                 {/* {valueSearch.slice(0, valueSearch.indexOf('=', 0) + 1) === 'menuItem/' ? (<p></p>) : (<h1 className='pt-5 text-3xl'>Result for "{valueSearch}"</h1>)} */}
                 <h1 className='pt-5 text-3xl'>Result for "{valueSearch}"</h1>
                 <div className='top-bar flex justify-between'>
-                    <div className='left flex'>
-                        <DropdownButton id="dropdown-basic-button" title="Category">
+                    <div className='left mb-3 flex flex-wrap'>
+                        <DropdownButton id="dropdown-basic-button" className='mb-3' title="Category">
                             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                             <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                         </DropdownButton>
-                        <DropdownButton id="dropdown-basic-button" title="Service Options">
+                        <DropdownButton id="dropdown-basic-button" className='mb-3' title="Service Options">
                             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                             <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                         </DropdownButton>
-                        <DropdownButton id="dropdown-basic-button" title="Seller Details">
+                        <DropdownButton id="dropdown-basic-button" className='mb-3' title="Seller Details">
                             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                             <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                         </DropdownButton>
-                        <DropdownButton id="dropdown-basic-button" title="Budget">
+                        <DropdownButton id="dropdown-basic-button" className='mb-3' title="Budget">
                             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                             <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                         </DropdownButton>
-                        <DropdownButton id="dropdown-basic-button" title="Delivery Time">
+                        <DropdownButton id="dropdown-basic-button" className='mb-3' title="Delivery Time">
                             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                             <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>

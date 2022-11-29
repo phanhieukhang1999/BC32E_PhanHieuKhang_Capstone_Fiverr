@@ -37,7 +37,9 @@
       .fiverr-header-search {
         // display: block;
         // width: 230px;
+        width: 100%;
         .search-form {
+          margin: auto;
           height: 46px;
           .search-input {
             -webkit-box-flex: 1;
@@ -200,6 +202,7 @@
 @media (max-width: 768px) {
   .Header {
     .container {
+      
       .fiverr-header-search {
         .search-form {
           height: 46px;
@@ -216,10 +219,23 @@
 }
 @media (max-width: 576px) {
   .Header {
-    .container {
-      .fiverr-header-search {
-        display: none;
-        
+    .fiverr-header {
+      height: 135px;
+      .container {
+        position: relative;
+        .fiverr-header-search {
+          position: absolute;
+          bottom: -30px;
+          .search-form {
+            height: 38px;
+            .search-input {
+              width: 300px !important;
+              &::placeholder {
+                content: '1323' !important;
+              }
+            }
+          }
+        }
       }
     }
   }

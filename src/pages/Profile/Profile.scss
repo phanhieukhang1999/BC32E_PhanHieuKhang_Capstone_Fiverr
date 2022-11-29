@@ -1,0 +1,37 @@
+.Profile {
+  .container {
+    .row {
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Profile {
+    .container {
+        margin-top: 15px;
+      .row {
+        flex-direction: column;
+        .col-4 {
+            width: 100%;
+        }
+        .col-7 {
+            width: 100%;
+            .bottom {
+                .row {
+                    .col-4 {
+                        width: 100%;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .col-8 {
+                        width: 100%;
+                        
+                    }
+                }
+            }
+        }
+      }
+    }
+  }
+}

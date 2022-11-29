@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getUserIdAction } from '../../redux/actions/NguoiDungActions'
 import { Modal } from "react-bootstrap";
 import FormEditUser from './FormEditUser/FormEditUser';
+import './Profile.scss'
 import { LayDanhSachCongViecDaThue, LayDanhSachCongViecDaThueActions, XoaCongViec, XoaCongViecAction } from '../../redux/actions/ThueCongViecActions';
 
 
@@ -36,7 +37,7 @@ export default function Profile() {
   const [showModal, setshowModal] = useState(false);
 
   return (
-    <div className='py-36'>
+    <div className='Profile py-36'>
       <div className="container">
         <div className="row justify-between">
           <div className="col-4">

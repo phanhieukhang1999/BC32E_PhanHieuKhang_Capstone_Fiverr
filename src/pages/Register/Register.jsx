@@ -64,16 +64,16 @@ export default function Register() {
   }, []);
 
   return (
-    <div className="selection:bg-green-500 selection:text-white py-36">
+    <div className="Register selection:bg-green-500 selection:text-white pb-0 py-36">
       <div className=" bg-green-100 flex justify-center items-center">
         <div className="p-8 flex-1">
-          <div className="w-1/2 bg-white rounded-3xl mx-auto overflow-hidden shadow-xl">
+          <div className="w-1/2 register-width bg-white rounded-3xl mx-auto overflow-hidden shadow-xl">
             <div className="relative h-32 bg-green-500 rounded-bl-4xl">
               <svg className="absolute bottom-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#ffffff" fillOpacity={1} d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,122.7C960,160,1056,224,1152,245.3C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
               </svg>
             </div>
-            <div className="px-10 pt-2 pb-8 bg-white rounded-tr-4xl">
+            <div className="register-form px-10 pt-2 pb-8 bg-white rounded-tr-4xl">
               <h1 className="text-2xl text-center mb-5 font-semibold text-gray-900">Welcome back Fiverr !</h1>
               <>
                 <Form

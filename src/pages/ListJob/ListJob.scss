@@ -21,3 +21,13 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  .ListJob {
+    .container {
+      .top-bar {
+        flex-direction: column;
+      }
+    }
+  }
+}
