@@ -56,3 +56,63 @@
     }
   }
 }
+
+
+@media (max-width: 768px) {
+    .Footer {
+      .container {
+        .grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .footer-bottom {
+          flex-direction: column;
+          .left {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+}
+
+@media (max-width: 576px) {
+  .Footer {
+    .container {
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Footer {
+    .container {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .footer-bottom {
+        padding: 15px 0 !important;
+        flex-direction: column;
+        .left {
+          flex-direction: column;
+          margin-bottom: 10px;
+          .fiverr-logo-footer {
+            margin-bottom: 5px;
+          }
+          .copyright  {
+            margin-left: 0;
+          }
+        }
+        .right {
+          flex-direction: column;
+          .socials {
+            margin-right: 0;
+          }
+          .setting {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

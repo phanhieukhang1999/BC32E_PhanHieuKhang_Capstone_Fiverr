@@ -21,3 +21,32 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .menuItem {
+    .container {
+      margin-top: 25px;
+      .top-bar {
+        flex-direction: column;
+        .left {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .menuItem {
+    .container {
+      // margin-top: 25px;
+      .top-bar {
+        // flex-direction: column;
+        .left {
+          // margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

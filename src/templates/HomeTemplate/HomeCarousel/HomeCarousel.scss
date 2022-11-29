@@ -310,17 +310,25 @@
       }
     }
     .carousel-content {
-      width: 70%;
+      width: 90%;
+      left: 5%;
       .carousel-header {
         position: absolute;
         top: -30px;
         // left: 15%;
         h1 {
+          line-height: 35px !important;
           span {
             font-size: 30px !important;
           }
         }
         .carousel-search {
+          margin-top: 15px;
+          .search-form {
+            button {
+              padding: 10px 12px !important;
+            }
+          }
         }
         .popular {
           display: none;
@@ -359,6 +367,7 @@
     }
     .carousel-content {
       width: 70%;
+      left: 24%;
       .carousel-header {
         position: absolute;
         top: 25px;

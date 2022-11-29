@@ -64,3 +64,78 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .MenuDetail {
+    .container {
+      // margin-top: 25px;
+      .content-banner {
+        img {
+          display: none;
+          // background-image: url("https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3f1b7ea10295936b6846bcff0afd38cf-1626595415227/graphics-design-mobile.png");
+          // background-position: center;
+          // background-size: cover;
+          // width: 100%;
+          // height: 230px;
+        }
+        .img-2 {
+          background-image: url("https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3f1b7ea10295936b6846bcff0afd38cf-1626595415227/graphics-design-mobile.png");
+          background-position: center;
+          background-size: cover;
+          width: 100%;
+          height: 230px;
+        }
+      }
+      .content-carousel {
+        .menu-detail {
+          .list {
+            .row {
+              .col-3 {
+                width: calc(100% / 3);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .MenuDetail {
+    .container {
+      .content-carousel {
+        .menu-detail {
+          .list {
+            .row {
+              .col-3 {
+                width: calc(100% / 2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .MenuDetail {
+    .container {
+      .content-carousel {
+        .menu-detail {
+          .list {
+            .row {
+              .col-3 {
+                width: 100%;
+                img {
+                  margin: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

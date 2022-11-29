@@ -35,7 +35,8 @@ export default function MenuDetail() {
         <div className='MenuDetail py-36'>
             <div className="container mx-auto">
                 <div className='content-banner flex justify-center items-center text-white'>
-                    <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3f1b7ea10295936b6846bcff0afd38cf-1626595415203/graphics-design-desktop.png" alt="..." style={{ width: '100%' }} />
+                    <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3f1b7ea10295936b6846bcff0afd38cf-1626595415203/graphics-design-desktop.png" alt="..." style={{ width: '100%', height: '230px' }} />
+                    <div className='img-2'></div>
                     <div className='img-content flex flex-col justify-center items-center'>
                         <h1 className='text-white'>{menuItem.tenLoaiCongViec}</h1>
                         <p className='text-2xl'>Designs to make you stand out.</p>
@@ -102,7 +103,7 @@ export default function MenuDetail() {
                         <div className='list mt-3' >
                             <div className="row">
                                 {menuItem.dsNhomChiTietLoai?.map((detail, index) => {
-                                    return <div className="col-3" key={index}>
+                                    return <div className="col-3 mb-3" key={index}>
                                         <img src={detail.hinhAnh ? detail.hinhAnh : 'https://picsum.photos/200/300'} alt="..." style={{ height: '200px', width: '300px' }} />
                                         <ListGroup className='mt-3'>
                                             <ListGroup.Item>

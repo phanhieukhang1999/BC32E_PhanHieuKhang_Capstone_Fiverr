@@ -39,8 +39,8 @@
       }
       .card-body {
         position: absolute;
-        top: 10px;
-        left: 35px;
+        top: 0;
+        left: 6px;
         span {
           color: #fff;
           font-size: 14px;
@@ -64,11 +64,24 @@
       h2 {
         font-size: 25px;
       }
+      .slick-prev,
+      .slick-next {
+        display: none !important;
+      }
+
       .slick-slider {
         .slick-list {
           .slick-track {
-            img {
-              
+            .slick-slide {
+              width: 250px !important;
+              .card {
+                img {
+                }
+                .card-body {
+                  top: 0;
+                  left: 0;
+                }
+              }
             }
           }
         }

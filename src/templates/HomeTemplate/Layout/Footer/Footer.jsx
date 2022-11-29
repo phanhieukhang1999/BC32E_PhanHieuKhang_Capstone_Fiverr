@@ -29,18 +29,14 @@ export default function Footer() {
                 <li>
                   <a href="/categories/programming-tech">Programming &amp; Tech</a>
                 </li>
-                <li>
-                  <a href="/categories/data">Data</a>
-                </li>
+
                 <li>
                   <a href="/categories/business">Business</a>
                 </li>
                 <li>
                   <a href="/categories/lifestyle">Lifestyle</a>
                 </li>
-                <li>
-                  <a href="/categories">Sitemap</a>
-                </li>
+
               </ul>
             </div>
           </div>
@@ -86,7 +82,15 @@ export default function Footer() {
                 <li>
                   <a href="/categories/online-marketing">Partnerships</a>
                 </li>
-
+                <li>
+                  <a href="/categories/video-animation">Terms of Service</a>
+                </li>
+                <li>
+                  <a href="/categories/music-audio">Intellectual Property Claims</a>
+                </li>
+                <li>
+                  <a href="/categories/programming-tech">Investor Relations</a>
+                </li>
 
               </ul>
             </div>
@@ -142,15 +146,7 @@ export default function Footer() {
                 <li>
                   <a href="/categories/music-audio">Intellectual Property Claims</a>
                 </li>
-                <li>
-                  <a href="/categories/programming-tech">Investor Relations</a>
-                </li>
-                <li>
-                  <a href="/categories/music-audio">Intellectual Property Claims</a>
-                </li>
-                <li>
-                  <a href="/categories/programming-tech">Investor Relations</a>
-                </li>
+                
               </ul>
             </div>
           </div>

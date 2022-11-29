@@ -21,29 +21,30 @@ export default function MenuItem() {
     }, [])
     return (
         <div className='menuItem py-36'>
-            <div className="container"><div className='top-bar flex justify-between'>
-                <div className='left flex'>
-                    <DropdownButton id="dropdown-basic-button" title="Category">
+            <div className="container">
+                <div className='top-bar flex justify-between'>
+                <div className='left flex flex-wrap'>
+                    <DropdownButton id="dropdown-basic-button" className='mb-3' title="Category">
                         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                     </DropdownButton>
-                    <DropdownButton id="dropdown-basic-button" title="Service Options">
+                    <DropdownButton id="dropdown-basic-button" className='mb-3' title="Service Options">
                         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                     </DropdownButton>
-                    <DropdownButton id="dropdown-basic-button" title="Seller Details">
+                    <DropdownButton id="dropdown-basic-button" className='mb-3' title="Seller Details">
                         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                     </DropdownButton>
-                    <DropdownButton id="dropdown-basic-button" title="Budget">
+                    <DropdownButton id="dropdown-basic-button" className='mb-3' title="Budget">
                         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                     </DropdownButton>
-                    <DropdownButton id="dropdown-basic-button" title="Delivery Time">
+                    <DropdownButton id="dropdown-basic-button" className='mb-3' title="Delivery Time">
                         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
@@ -74,7 +75,7 @@ export default function MenuItem() {
                     {menuItem.dsNhomChiTietLoai?.map((item) => {
                         return <div className="col-12 col-md-6 col-lg-3 mb-5">
                             <div className="px-3 py-3 flex " >
-                                <Card key={item.id} onClick={() => navigate(`/detailJob/${item.id}`)}>
+                                <Card className='mx-auto' key={item.id} onClick={() => navigate(`/detailJob/${item.id}`)}>
 
                                     <Card.Img
                                         role="button"
@@ -99,8 +100,8 @@ export default function MenuItem() {
                                             <span className="mr-1">
                                                 <i className=" text-warning fas fa-star"></i>
                                             </span>
-                                            <span className="text-warning mr-1">123123</span>
-                                            <span className="text-muted">123123</span>
+                                            <span className="text-warning mr-1">5</span>
+                                            <span className="text-muted">(123)</span>
                                         </div>
                                     </Card.Body>
                                     <div className="d-flex justify-content-between align-items-center px-3 py-1 border border-top-secondary border-right-0 border-left-0 border-bottom-0">
@@ -109,7 +110,7 @@ export default function MenuItem() {
                                         </span>
                                         <div className=" align-items-center">
                                             <span className="h6">STARTING AT</span>
-                                            <span className="h4 ml-1">123123$</span>
+                                            <span className="h4 ml-1">10$</span>
                                         </div>
                                     </div>
                                 </Card>
