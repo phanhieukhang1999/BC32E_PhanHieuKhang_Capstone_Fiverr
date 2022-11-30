@@ -12,4 +12,9 @@ export const LAY_CHI_TIET_LOAI_CONG_VIEC = 'LAY_CHI_TIET_LOAI_CONG_VIEC'
 export const LAY_CONG_VIEC_CHI_TIET = 'LAY_CONG_VIEC_CHI_TIET'
 
 // Admin
+
+export const INFO_CONG_VIEC = 'INFO_CONG_VIEC'
+
 export const ADD_CONG_VIEC = 'ADD_CONG_VIEC'
+
+export const EDIT_CONG_VIEC = 'EDIT_CONG_VIEC'

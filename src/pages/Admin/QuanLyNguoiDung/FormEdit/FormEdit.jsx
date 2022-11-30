@@ -116,7 +116,7 @@ export default function FormEdit({ setshowModalEdit }) {
             </Form.Item>
 
             <Form.Item className="text-right">
-                <button
+                <button type='button'
 
                     onClick={() => setshowModalEdit(false)}
                     className="btn btn-primary  mr-3"

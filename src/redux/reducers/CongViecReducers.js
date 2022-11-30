@@ -1,4 +1,4 @@
-import { ADD_CONG_VIEC, LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_CHI_TIET, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC } from "../types/CongViecTypes"
+import { ADD_CONG_VIEC, EDIT_CONG_VIEC, INFO_CONG_VIEC, LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_CHI_TIET, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC } from "../types/CongViecTypes"
 
 
 const stateDefault = {
@@ -274,9 +274,8 @@ const stateDefault = {
 
     addJob: {},
 
-    editJob: {
-        
-    }
+    infoJob: {}   
+    
 
 
 
@@ -324,6 +323,15 @@ export const CongViecReducers = (state = stateDefault, action) => {
             state.addJob = action.addJob
             return { ...state }
         }
+        case INFO_CONG_VIEC: {
+            state.infoJob = action.infoJob
+            return { ...state }
+        }
+        case EDIT_CONG_VIEC: {
+            state.infoJob = action.infoJob
+            return { ...state }
+        }
+
         default: return { ...state }
     }
 }

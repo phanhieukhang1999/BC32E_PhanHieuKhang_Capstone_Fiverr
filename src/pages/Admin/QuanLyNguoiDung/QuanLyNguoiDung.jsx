@@ -118,7 +118,7 @@ export default function QuanLyNguoiDung() {
       dataIndex: 'action',
       key: 'action',
       render: (text, user) => {
-        return <Fragment>
+        return <Fragment key={text}>
           <span key={1} className=" mr-2  text-2xl" >
             <EditOutlined style={{ color: 'blue' }}
               onClick={() => {

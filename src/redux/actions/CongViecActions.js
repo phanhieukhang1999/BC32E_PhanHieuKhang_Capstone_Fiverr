@@ -1,5 +1,5 @@
 import { congViecServices } from "../../services/congViecServices";
-import { ADD_CONG_VIEC, LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_CHI_TIET, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC, THEM_CONG_VIEC } from "../types/CongViecTypes";
+import { ADD_CONG_VIEC, EDIT_CONG_VIEC, INFO_CONG_VIEC, LAY_CHI_TIET_LOAI_CONG_VIEC, LAY_CONG_VIEC_CHI_TIET, LAY_CONG_VIEC_THEO_CHI_TIET_LOAI, LAY_DS_CONG_VIEC, LAY_DS_CONG_VIEC_THEO_TEN, SET_MENU_CONG_VIEC, THEM_CONG_VIEC } from "../types/CongViecTypes";
 import Swal from 'sweetalert2'
 import { api } from "../../constants/api";
 
@@ -140,6 +140,29 @@ export const layDanhSachCongViecTheoTenAction = (valueSearch) => {
 
 // Admin
 
+export const infoJobAction = (id) => {
+
+    return async (dispatch) => {
+        try {
+            const result = await congViecServices.infoJobService(id)
+            console.log("result: ", result.data.content);
+            if (result.status === 200) {
+                dispatch({
+                    type: INFO_CONG_VIEC,
+                    infoJob: result.data.content,
+
+                })
+
+            }
+            
+        } catch (error) {
+            console.log("error: ", error.response?.data);
+
+        }
+    }
+}
+
+
 export const addJobAction = (values) => {
 
     return async (dispatch) => {
@@ -171,6 +194,7 @@ export const addJobAction = (values) => {
 }
 
 export const editJobAction = (values) => {
+    // console.log("values: ", values);
 
     return async (dispatch) => {
         try {
@@ -178,9 +202,17 @@ export const editJobAction = (values) => {
 
             const result = await congViecServices.editJobService(values)
             console.log("result: ", result.data.content);
+            // if (result.status === 200) {
+            //     dispatch({
+            //         type: EDIT_CONG_VIEC,
+            //         editJob: result.data.content,
 
+            //     })
+                
+            // }
+            // dispatch(layDSCongViecAction())
         
-            // api.defaults.headers.common['token'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NzgiLCJlbWFpbCI6ImtoYW5nQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsIm5iZiI6MTY2OTUzOTk2MCwiZXhwIjoxNjcwMTQ0NzYwfQ.NNHQ2Ad2Cz2x-ggVyXorg8LmzO-eCvHWvk6SblL91m0"
+            
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -188,9 +220,9 @@ export const editJobAction = (values) => {
                 showConfirmButton: false,
                 timer: 1500,
             })
-            // .then(function () {
-            //     window.location.reload()
-            // })
+            .then(function () {
+                window.location.reload()
+            })
         } catch (error) {
             console.log("error: ", error.response?.data);
 

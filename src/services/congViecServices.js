@@ -28,6 +28,11 @@ export const congViecServices = {
     },
 
     //Admin
+
+    infoJobService: (id) => {
+        return api.get(`cong-viec/${id}`)
+    },
+
     addJobService: (job) => {
         return api.post(`/cong-viec`, job)
 
@@ -44,7 +49,7 @@ export const congViecServices = {
         // api.setHeaders({
         //     token: 'token',
         // })
-        return api.put(`cong-viec/${values}`, values)
+        return api.put(`cong-viec/${values.id}`, values)
     },
     deleteJobService: (idJob) => {
         return api.delete(`cong-viec/${idJob}`)

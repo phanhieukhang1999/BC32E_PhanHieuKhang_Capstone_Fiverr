@@ -36,7 +36,7 @@ export default function FormEditJob({ setshowModalEdit }) {
 
     console.log("userAdmin: ", userAdmin);
 
-    const { userLogin } = useSelector(state => state.AuthReducers)
+    // const { userLogin } = useSelector(state => state.AuthReducers)
 
 
     useEffect(() => {
@@ -61,9 +61,9 @@ export default function FormEditJob({ setshowModalEdit }) {
         },
         onSubmit: (values) => {
             console.log("values: ", values);
-            
-            
-            dispatch(editJobAction(values.id))
+
+
+            dispatch(editJobAction(values))
 
         }
 
@@ -102,15 +102,15 @@ export default function FormEditJob({ setshowModalEdit }) {
             </Form.Item>
             <Form.Item label="Số sao">
                 <Select name="saoCongViec" placeholder="Chọn số sao" style={{ width: '30%' }} value={formik.values.saoCongViec} onChange={handleChangeRate}>
-                    <Option value="1">1</Option>
-                    <Option value="2">2</Option>
-                    <Option value="3">3</Option>
-                    <Option value="4">4</Option>
-                    <Option value="5">5</Option>
+                    <Option value={1}>1</Option>
+                    <Option value={2}>2</Option>
+                    <Option value={3}>3</Option>
+                    <Option value={4}>4</Option>
+                    <Option value={5}>5</Option>
                 </Select>
             </Form.Item>
             <Form.Item className="text-right">
-                <button
+                <button type='button'
                     onClick={() => setshowModalEdit(false)}
 
                     className="btn btn-primary  mr-3"
