@@ -192,8 +192,8 @@ export default function Register() {
                     hasFeedback
                   >
                     <Select name="gender" width='200px' placeholder='Chọn giới tính' value={formik.values.gender} onChange={handleChangeGender}>
-                      <Option value={true}>Male</Option>
-                      <Option value={false}>Female</Option>
+                      <Option value={true}>Nam</Option>
+                      <Option value={false}>Nữ</Option>
                     </Select>
                   </Form.Item>
                   <Form.Item label="Skill" name="skill" rules={[

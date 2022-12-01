@@ -170,7 +170,7 @@ export default function Profile() {
                     <h5>Education</h5>
                     <b>Edit</b>
                   </div>
-                  <p>STU</p>
+                  
                 </div>
                 <hr />
                 <div className='certification p-2'>

@@ -37,7 +37,7 @@
       .fiverr-header-search {
         // display: block;
         // width: 230px;
-        width: 100%;
+        // width: 100%;
         .search-form {
           margin: auto;
           height: 46px;
@@ -208,12 +208,11 @@
           height: 46px;
           .search-input {
             width: 300px !important;
-            &::placeholder {
-              content: '1323' !important;
-            }
+           
           }
         }
       }
+      
     }
   }
 }
@@ -226,17 +225,23 @@
         .fiverr-header-search {
           position: absolute;
           bottom: -30px;
+          width: 100%;
           .search-form {
             height: 38px;
+            max-width: auto;
             .search-input {
               width: 300px !important;
-              &::placeholder {
-                content: '1323' !important;
-              }
+             
             }
           }
         }
+        .fiverr-nav {
+        
+          top: 135px;
+  
+        }
       }
+      
     }
   }
 }

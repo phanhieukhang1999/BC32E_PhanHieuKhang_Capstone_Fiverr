@@ -47,7 +47,7 @@ export default function FormEditUser({ setshowModal }) {
             name: userId?.name,
             email: userId?.email,
             phone: userId?.phone,
-            birthday: moment(userId?.birthday).format("DD/MM/YYYY"),
+            birthday: moment(userId?.birthday),
             gender: userId?.gender,
             role: userId?.role,
             skill: userId?.skill,
@@ -59,7 +59,12 @@ export default function FormEditUser({ setshowModal }) {
         }
 
     })
+    const handleChangeDatePicker = (value) => {
+        // console.log('datepickerchange',);
+        let birthday = moment(value);
+        formik.setFieldValue('birthday', birthday);
 
+    }
     const handleChangeSkill = (skill) => {
         // let skill = value;
         formik.setFieldValue('skill', skill);
@@ -107,11 +112,11 @@ export default function FormEditUser({ setshowModal }) {
             </Form.Item>
 
             <Form.Item
-                label="Ngày sinh"
+                label="Ngày sinh:"
 
 
             >
-                <DatePicker name='birthday' format={"DD/MM/YYYY"} value={moment(formik.values.birthday)} />
+                <DatePicker name='birthday' format={"DD/MM/YYYY"} value={moment(formik.values.birthday)} onChange={formik.handleChange} />
             </Form.Item>
 
             <Form.Item label="Skill" >
@@ -131,7 +136,7 @@ export default function FormEditUser({ setshowModal }) {
                 </Select>
             </Form.Item>
             <Form.Item className="text-right">
-                <button
+                <button type='button'
                     onClick={() => setshowModal(false)}
 
                     className="btn btn-primary  mr-3"

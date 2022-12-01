@@ -20,6 +20,9 @@ export default function Header(props) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [])
+
+
+  
   return (
 
     <div className={`Header`}>
@@ -42,10 +45,15 @@ export default function Header(props) {
             </form> */}
             <HeaderSearch />
           </div>
+
+
+          {/* Sidebar */}
           <input type="checkbox" id="check" />
           <label htmlFor="check" className='checkbtn'>
             <MenuOutlined />
           </label>
+
+
           <ul className="fiverr-nav items-stretch mb-0  hidden space-x-3 lg:flex">
             <li className="flex">
               <NavLink rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500 active::text-blue-700">Fiverr Business</NavLink>
