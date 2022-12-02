@@ -59,6 +59,13 @@ export default function Register() {
     formik.setFieldValue('gender', gender);
 
   }
+
+  const handleChangeDatePicker = (value) => {
+    // console.log('datepickerchange',);
+    let birthday = moment(value);
+    formik.setFieldValue('birthday', birthday);
+
+}
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -183,7 +190,7 @@ export default function Register() {
                     hasFeedback
 
                   >
-                    <DatePicker name='birthday' format={"DD/MM/YYYY"} placeholder='Nhập ngày sinh' />
+                    <DatePicker name='birthday' format={"DD/MM/YYYY"}  value={formik.values.birthday} onChange={handleChangeDatePicker} placeholder='Nhập ngày sinh' />
                   </Form.Item>
                   <Form.Item label="Giới tính" name="gender" rules={[
                     {

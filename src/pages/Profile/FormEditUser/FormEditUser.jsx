@@ -116,7 +116,7 @@ export default function FormEditUser({ setshowModal }) {
 
 
             >
-                <DatePicker name='birthday' format={"DD/MM/YYYY"} value={moment(formik.values.birthday)} onChange={formik.handleChange} />
+                <DatePicker name='birthday' format={"DD/MM/YYYY"} value={formik.values.birthday} onChange={handleChangeDatePicker} />
             </Form.Item>
 
             <Form.Item label="Skill" >
