@@ -94,9 +94,6 @@ export default function HomeCarousel() {
                         <img src="./img/netflix.png" />
                     </li>
                     <li>
-                        <img src="./img/pg.png" />
-                    </li>
-                    <li>
                         <img src="./img/paypal.png" />
                     </li>
                 </ul>
