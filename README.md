@@ -1,3 +1,6 @@
+Link bảng công việc: https://docs.google.com/spreadsheets/d/1lj6TOVuBPJCqZxwTBCxICuJ7LCKuUAU8k5Mvmd3ZArY/edit#gid=0
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
