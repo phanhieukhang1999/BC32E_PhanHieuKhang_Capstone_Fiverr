@@ -26,7 +26,7 @@ export default function ListJob() {
     return (
         <div className='ListJob py-36'>
             <div className="container">
-                {/* {valueSearch.slice(0, valueSearch.indexOf('=', 0) + 1) === 'menuItem/' ? (<p></p>) : (<h1 className='pt-5 text-3xl'>Result for "{valueSearch}"</h1>)} */}
+                
                 <h1 className='pt-5 text-3xl'>Result for "{valueSearch}"</h1>
                 <div className='top-bar flex justify-between'>
                     <div className='left mb-3 flex flex-wrap'>

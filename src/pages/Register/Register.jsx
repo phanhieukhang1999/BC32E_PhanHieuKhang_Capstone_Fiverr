@@ -161,8 +161,10 @@ export default function Register() {
                       },
                       {
                         message: "Số điện thoai không đúng đinh dạng !",
-                        pattern: /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/,
+                        pattern: /(0|[1-9][0-9]*)$/,
                       },
+                      { min: 10, message: 'Phải là 10 số !' },
+                      { max: 10, message: 'Vượt quá 10 số !' },
                     ]}
                     hasFeedback
                   >

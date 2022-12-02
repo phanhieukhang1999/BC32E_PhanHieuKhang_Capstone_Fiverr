@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -14,12 +14,12 @@ export default function Header(props) {
 
   const { userLogin } = useSelector(state => state.AuthReducers)
   const navigate = useNavigate()
-  useEffect(() => {
-    const onScroll = () => setOffset(window.pageYOffset);
-    window.removeEventListener("scroll", onScroll);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [])
+  // useEffect(() => {
+  //   const onScroll = () => setOffset(window.pageYOffset);
+  //   window.removeEventListener("scroll", onScroll);
+  //   window.addEventListener("scroll", onScroll, { passive: true });
+  //   return () => window.removeEventListener("scroll", onScroll);
+  // }, [])
 
 
   
@@ -56,19 +56,19 @@ export default function Header(props) {
 
           <ul className="fiverr-nav items-stretch mb-0  hidden space-x-3 lg:flex">
             <li className="flex">
-              <NavLink rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500 active::text-blue-700">Fiverr Business</NavLink>
+              <Link rel="noopener noreferrer" to='/404' className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500 active::text-blue-700">Fiverr Business</Link>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Explore</a>
+              <Link rel="noopener noreferrer" to='/404' className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Explore</Link>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">English</a>
+              <Link rel="noopener noreferrer" to='/404' className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">English</Link>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">US$ USD</a>
+              <Link rel="noopener noreferrer" to='/404' className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">US$ USD</Link>
             </li>
             <li className="flex">
-              <a rel="noopener noreferrer" href="#" className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Become a Seller</a>
+              <Link rel="noopener noreferrer" to='/404' className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500">Become a Seller</Link>
             </li>
             {userLogin.token ? (
               <DropdownButton id="dropdown-basic-button" title={`${userLogin.user.name}`} >

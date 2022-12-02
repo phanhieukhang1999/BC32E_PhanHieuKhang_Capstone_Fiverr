@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRoutes } from 'react-router-dom'
+import Error from '../pages/PageNotFound/PageNotFound'
 import QuanLyCongViec from '../pages/Admin/QuanLyCongViec/QuanLyCongViec'
 import QuanLyDichVu from '../pages/Admin/QuanLyDichVu/QuanLyDichVu'
 import QuanLyLoaiCongViec from '../pages/Admin/QuanLyLoaiCongViec/QuanLyLoaiCongViec'
@@ -14,6 +15,7 @@ import AdminTemplate from '../templates/AdminTemplate/AdminTemplate'
 import HomeTemplate from '../templates/HomeTemplate/HomeTemplate'
 import MenuDetail from '../templates/HomeTemplate/Layout/Header/HeaderMenu/MenuDetail/MenuDetail'
 import MenuItem from '../templates/HomeTemplate/Layout/Header/HeaderMenu/MenuItem/MenuItem'
+import PageNotFound from '../pages/PageNotFound/PageNotFound'
 
 export default function Routers() {
     const routing = useRoutes([
@@ -39,7 +41,14 @@ export default function Routers() {
                 },
                 {
                     path: 'listJob/:valueSearch',
-                    element: <ListJob />
+                    element: <ListJob />,
+                    children: [
+                        {
+                            path: '404',
+                            element: <PageNotFound/>
+                        }
+                    ]
+
                 },
                 {
                     path: ':idMenu',
@@ -65,6 +74,10 @@ export default function Routers() {
                 {
                     path: 'profile/:idProfile',
                     element: <Profile />
+                },
+                {
+                    path: '404',
+                    element: <PageNotFound />
                 }
 
 
